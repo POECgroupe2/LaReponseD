@@ -20,6 +20,14 @@ class UserGameAnswer
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $delayAnswer = null;
 
+    #[ORM\ManyToOne(inversedBy: 'userGameAnswers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Answer $answer = null;
+
+    #[ORM\ManyToOne(inversedBy: 'userGameAnswers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Game $game = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +53,30 @@ class UserGameAnswer
     public function setDelayAnswer(string $delayAnswer): self
     {
         $this->delayAnswer = $delayAnswer;
+
+        return $this;
+    }
+
+    public function getAnswer(): ?Answer
+    {
+        return $this->answer;
+    }
+
+    public function setAnswer(?Answer $answer): self
+    {
+        $this->answer = $answer;
+
+        return $this;
+    }
+
+    public function getGame(): ?Game
+    {
+        return $this->game;
+    }
+
+    public function setGame(?Game $game): self
+    {
+        $this->game = $game;
 
         return $this;
     }

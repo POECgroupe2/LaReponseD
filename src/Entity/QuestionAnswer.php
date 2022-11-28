@@ -16,6 +16,14 @@ class QuestionAnswer
     #[ORM\Column]
     private ?bool $isGood = null;
 
+    #[ORM\ManyToOne(inversedBy: 'questionAnswers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Answer $answer = null;
+
+    #[ORM\ManyToOne(inversedBy: 'questionAnswers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Question $question = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +37,30 @@ class QuestionAnswer
     public function setIsGood(bool $isGood): self
     {
         $this->isGood = $isGood;
+
+        return $this;
+    }
+
+    public function getAnswer(): ?Answer
+    {
+        return $this->answer;
+    }
+
+    public function setAnswer(?Answer $answer): self
+    {
+        $this->answer = $answer;
+
+        return $this;
+    }
+
+    public function getQuestion(): ?Question
+    {
+        return $this->question;
+    }
+
+    public function setQuestion(?Question $question): self
+    {
+        $this->question = $question;
 
         return $this;
     }

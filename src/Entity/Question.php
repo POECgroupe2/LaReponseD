@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\QuestionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -26,6 +28,22 @@ class Question
     #[ORM\ManyToOne(inversedBy: 'questions')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
+
+    #[ORM\ManyToMany(targetEntity: Level::class, inversedBy: 'questions')]
+    private Collection $levels;
+
+    #[ORM\ManyToMany(targetEntity: Game::class, inversedBy: 'questions')]
+    private Collection $games;
+
+    #[ORM\OneToMany(mappedBy: 'question', targetEntity: QuestionAnswer::class)]
+    private Collection $questionAnswers;
+
+    public function __construct()
+    {
+        $this->levels = new ArrayCollection();
+        $this->games = new ArrayCollection();
+        $this->questionAnswers = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -76,6 +94,84 @@ class Question
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Level>
+     */
+    public function getLevels(): Collection
+    {
+        return $this->levels;
+    }
+
+    public function addLevel(Level $level): self
+    {
+        if (!$this->levels->contains($level)) {
+            $this->levels->add($level);
+        }
+
+        return $this;
+    }
+
+    public function removeLevel(Level $level): self
+    {
+        $this->levels->removeElement($level);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Game>
+     */
+    public function getGames(): Collection
+    {
+        return $this->games;
+    }
+
+    public function addGame(Game $game): self
+    {
+        if (!$this->games->contains($game)) {
+            $this->games->add($game);
+        }
+
+        return $this;
+    }
+
+    public function removeGame(Game $game): self
+    {
+        $this->games->removeElement($game);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, QuestionAnswer>
+     */
+    public function getQuestionAnswers(): Collection
+    {
+        return $this->questionAnswers;
+    }
+
+    public function addQuestionAnswer(QuestionAnswer $questionAnswer): self
+    {
+        if (!$this->questionAnswers->contains($questionAnswer)) {
+            $this->questionAnswers->add($questionAnswer);
+            $questionAnswer->setQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuestionAnswer(QuestionAnswer $questionAnswer): self
+    {
+        if ($this->questionAnswers->removeElement($questionAnswer)) {
+            // set the owning side to null (unless already changed)
+            if ($questionAnswer->getQuestion() === $this) {
+                $questionAnswer->setQuestion(null);
+            }
+        }
 
         return $this;
     }
