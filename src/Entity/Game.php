@@ -28,10 +28,14 @@ class Game
     #[ORM\OneToMany(mappedBy: 'game', targetEntity: UserGameAnswer::class)]
     private Collection $userGameAnswers;
 
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'games')]
+    private Collection $users;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
         $this->userGameAnswers = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -115,6 +119,33 @@ class Game
             if ($userGameAnswer->getGame() === $this) {
                 $userGameAnswer->setGame(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->addGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeGame($this);
         }
 
         return $this;
