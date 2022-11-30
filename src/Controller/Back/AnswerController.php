@@ -3,7 +3,7 @@
 namespace App\Controller\Back;
 
 use App\Entity\Answer;
-use App\Form\Answer1Type;
+use App\Form\AnswerType;
 use App\Repository\AnswerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +25,7 @@ class AnswerController extends AbstractController
     public function new(Request $request, AnswerRepository $answerRepository): Response
     {
         $answer = new Answer();
-        $form = $this->createForm(Answer1Type::class, $answer);
+        $form = $this->createForm(AnswerType::class, $answer);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,7 +51,7 @@ class AnswerController extends AbstractController
     #[Route('/{id}/edit', name: 'app_back_answer_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Answer $answer, AnswerRepository $answerRepository): Response
     {
-        $form = $this->createForm(Answer1Type::class, $answer);
+        $form = $this->createForm(AnswerType::class, $answer);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

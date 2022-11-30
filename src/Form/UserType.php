@@ -46,6 +46,11 @@ class UserType extends AbstractType
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
+                    // new Regex(
+                    //     "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/",
+                    //     "Votre mot de passe n'est pas assez sécurisé.veuillez recommencer"
+                    // ), 
+               
                 ]
             ])
             
@@ -58,8 +63,8 @@ class UserType extends AbstractType
             ->add('pseudo', TextType::class, array(
                 'constraints' => new NotBlank(),
                 'label' => "Pseudo",
-            ))
-            ->add('totalScore');
+            ));
+            // ->add('totalScore');
             // ->add('createdAt')
         //     ->add('games')
         // ;
