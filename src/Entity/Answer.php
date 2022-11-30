@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: AnswerRepository::class)]
 class Answer
@@ -20,6 +21,7 @@ class Answer
     private ?string $content = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Gedmo\Timestampable(on: 'create')]
     private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\OneToMany(mappedBy: 'answer', targetEntity: QuestionAnswer::class, orphanRemoval: true)]
