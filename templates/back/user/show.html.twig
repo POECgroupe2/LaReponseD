@@ -3,6 +3,7 @@
 {% block title %}User{% endblock %}
 
 {% block body %}
+{% include 'back/partial/back_nav_bar.html.twig' %}
     <h1>User</h1>
 
     <table class="table">
@@ -19,10 +20,10 @@
                 <th>Roles</th>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
             </tr>
-            <tr>
+            {# <tr>
                 <th>Password</th>
                 <td>{{ user.password }}</td>
-            </tr>
+            </tr> #}
             <tr>
                 <th>Pseudo</th>
                 <td>{{ user.pseudo }}</td>

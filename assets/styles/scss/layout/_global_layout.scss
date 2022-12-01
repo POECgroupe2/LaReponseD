@@ -1,0 +1,24 @@
+@import 
+"header",
+"navigation";
+
+@import
+"main";
+
+@import
+"footer";
+
+// Global
+
+html {
+    font-size: $font-size-default;
+    // scroll-behavior: smooth;
+    // -webkit-overflow-scrolling: touch;
+
+    body {
+        
+        color: $color-black;
+        background-color: rgb(255, 255, 255);
+    }
+
+}

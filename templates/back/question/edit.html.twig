@@ -3,6 +3,7 @@
 {% block title %}Edit Question{% endblock %}
 
 {% block body %}
+{% include 'back/partial/back_nav_bar.html.twig' %}
     <h1>Edit Question</h1>
 
     {{ include('back/question/_form.html.twig', {'button_label': 'Update'}) }}
