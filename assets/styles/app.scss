@@ -1,7 +1,204 @@
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
-
 body {
-    background-color: rgb(230, 230, 230);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 0
+}
+
+/* Bannière */
+header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(0, 0, 175);
+    height: 148px;
+    width: 100%;
+    color: white;
+    border-bottom: 2px red solid;
+
+    >#logo {
+        height: 80px;
+        width: 80px;
+        text-align: center;
+        border:1px white solid;
+        margin-left: 40px
+    }
+
+    >nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+
+        >.navLink {
+            background: black;
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px red solid;
+            border-radius: 50%;
+            margin: 0 10px;
+            &:hover {
+                background: white;
+                color: black
+            }
+        }
+    }
+}
+
+/* Contenu principal */
+main {
+    background-color: rgb(20, 200, 250);
+    background-image: url("../images/fond_bleu.jpg");
+    background-size: cover;
+    text-align: center;
+    padding-top: 50px;
+    margin-top: 148px;
+
+    >#titles, >#explain, >#count-down-timer, .question, .reponse, #result {
+        background: rgba(255, 255, 255, 0.6);
+        width: 90%;
+        max-width: 1200px;
+        padding: 0 20px 10px 20px;
+        border: 2px red solid;
+        border-radius: 15px;
+        margin: 50px auto
+    }
+
+    h1, h2, h3 {
+        font-size: unset;
+        font-weight: bold
+    }
+
+    h1 {
+        font-size: 3em;
+        text-transform: uppercase;
+        margin: 30px 0
+    }
+
+    h2 {
+        font-size: 1.5em
+    }
+
+    >#explain p {
+        font-size: 1.2em
+    }
+
+    >#explain h3 {
+        font-size: 1.3em;
+        margin: 10px 0
+    }
+
+    >#buttons {
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+
+        >.eachButton {
+            cursor: pointer;
+            display: none;
+            background: black;
+            color: white;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: 2px red solid;
+            border-radius: 50%;
+            margin: 0 auto;
+            &:hover {
+                background: white;
+                color: black
+            }
+        }
+        
+        >#button1 {
+            display: block
+        }
+    }
+
+    >#count-down-timer {
+        width: 200px;
+        color: red;
+        font-size: 2em;
+        font-weight: bold;
+        padding: 0;
+        margin: 0 auto
+    }
+
+    article {
+        display: none;
+        font-size: 1.2em;
+        margin-top: 50px;
+
+        >.question {
+            width: 80%;
+            max-width: 600px;
+            padding: 10px 20px;
+            margin: 10px auto
+        }
+
+        >.reponses {
+            width: 90%;
+            margin: 10px 5%;
+
+            >.repLigne {
+                display: flex;
+                justify-content: center;
+
+                >.reponse {
+                    cursor: pointer;
+                    width: 44%;
+                    max-width: 400px;
+                    color: black;
+                    font-size: 1em;
+                    text-decoration: none;
+                    padding: 10px 20px;
+                    margin: 10px 5px;
+                    &:hover {
+                        background: black;
+                        color: white
+                    }
+                }
+            }
+        }
+    }
+
+    #result {
+        display: none;
+        width: unset;
+        padding: 5px 10px
+    }
+}
+
+/* Pied de page */
+footer {
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgb(0, 0, 175);
+    height: 98px;
+    width: 100%;
+    color: white;
+    border-top: 2px red solid;
+
+    >#logo {
+        height: 60px;
+        width: 60px;
+        text-align: center;
+        border:1px white solid;
+        margin-left: 40px
+    }
+
+    >div {
+        width: 80%;
+        font-weight: bold;
+        text-align: center;
+        margin: 0 auto
+    }
 }

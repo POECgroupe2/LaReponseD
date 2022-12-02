@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La réponse D !{% endblock %}
+
+{% block body %}
+    <header>
+        <img src="logo.jpg" alt="LOGO" id="logo">
+        <nav>
+            <a href="#" class="navLink">Classement</a>
+            <a href="#" class="navLink">Inscription</a>
+            <a href="#" class="navLink">Connexion</a>
+            <a href="#" class="navLink">Déconnexion</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="titles">
+            <h1>La réponse D !</h1>
+            <h2>Bienvenue dans ce jeu de quizz en ligne !</h2>
+            <h2>
+                N'hésitez pas à vous inscrire dès maintenant pour découvrir le jeu complet<br>
+                ou simplement à jouer à la mini-partie de 5 questions qui vous est offerte ci-dessous...
+            </h2>
+        </section>
+
+        <section id="explain">
+            <h3>Comment jouer ?</h3>
+            <p>Cliquer sur le bouton de la question ci-dessous déclenche le compteur et fait apparaître la
+            question et ses réponses.</p>
+            <p>Cliquer sur une réponse la valide et fait disparaître l'ensemble. Il n'est alors plus
+            possible de modifier ce choix.</p>
+            <p>Si vous n'avez pas répondu dans le temps imparti, la question et les réponses disparaissent
+            aussi...</p>
+        </section>
+
+        <section id="buttons">
+            <!-- Ici se trouvent des boutons créés dans une boucle JS. -->
+        </section>
+
+        <div id="count-down-timer">20 secondes</div>
+
+        <section>
+            <article id="question1">
+                <div class="question">
+                    Quelle est la plus grande planète de notre système solaire&nbsp;?
+                </div>
+                <div class="reponses">
+                    <div class="repLigne">
+                        <input type="button" class="reponse" id="rep1-1" value="Jupiter">
+                        <input type="button" class="reponse" id="rep1-2" value="Saturne">
+                    </div>
+                    <div class="repLigne">
+                        <input type="button" class="reponse" id="rep1-3" value="Uranus">
+                        <input type="button" class="reponse" id="rep1-4" value="Neptune">
+                    </div>
+                </div>
+            </article>
+
+            <article id="question2">
+                <div class="question">
+                    De quel groupe musical Rob Bourdon est-il le batteur&nbsp;?
+                </div>
+                <div class="reponses">
+                    <div class="repLigne">
+                        <input type="button" class="reponse" id="rep2-1" value="Deep Purple">
+                        <input type="button" class="reponse" id="rep2-2" value="Guns N' Roses">
+                    </div>
+                    <div class="repLigne">
+                        <input type="button" class="reponse" id="rep2-3" value="Linkin Park">
+                        <input type="button" class="reponse" id="rep2-4" value="Motörhead">
+                    </div>
+                </div>
+            </article>
+
+            <article id="question3">
+                <div class="question">
+                    Qui était le Président de la République Française en 1971&nbsp;?
+                </div>
+                <div class="reponses">
+                    <div class="repLigne">
+                        <input type="button" class="reponse" id="rep3-1" value="Charles de Gaulle">
+                        <input type="button" class="reponse" id="rep3-2" value="Georges Pompidou">
+                    </div>
+                    <div class="repLigne">
+                        <input type="button" class="reponse" id="rep3-3" value="Valéry Giscard d'Estaing">
+                        <input type="button" class="reponse" id="rep3-4" value="Alain Poher">
+                    </div>
+                </div>
+            </article>
+
+            <article id="question4">
+                <div class="question">
+                    Lequel de ces noms n'est pas celui d'un des bateaux de Christophe Colomb lors de sa
+                "découverte" de l'Amérique&nbsp;?
+                </div>
+                <div class="reponses">
+                    <div class="repLigne">
+                        <input type="button" class="reponse" id="rep4-1" value="La Guardia">
+                        <input type="button" class="reponse" id="rep4-2" value="La Niña">
+                    </div>
+                    <div class="repLigne">
+                        <input type="button" class="reponse" id="rep4-3" value="La Pinta">
+                        <input type="button" class="reponse" id="rep4-4" value="La Santa Maria">
+                    </div>
+                </div>
+            </article>
+
+            <article id="question5">
+                <div class="question">
+                    Quand est décédé Ayrton Senna&nbsp;?
+                </div>
+                <div class="reponses">
+                    <div class="repLigne">
+                        <input type="button" class="reponse" id="rep5-1" value="3 novembre 1993">
+                        <input type="button" class="reponse" id="rep5-2" value="15 février 1994">
+                    </div>
+                    <div class="repLigne">
+                        <input type="button" class="reponse" id="rep5-3" value="1er mai 1994">
+                        <input type="button" class="reponse" id="rep5-4" value="4 mai 1995">
+                    </div>
+                </div>
+            </article>
+
+            <article id="result"></article>
+        </section>
+        <div style="height:300px"></div>
+    </main>
+
+    <footer>
+        <img src="logo.jpg" alt="LOGO" id="logo">
+        <div>Christophe NEDAUD - Gilbert FRADET - Jérôme FROMANTIN</div>
+    </footer>
+{% endblock %}
