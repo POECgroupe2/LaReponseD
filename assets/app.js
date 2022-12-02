@@ -8,7 +8,7 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/scss/app.scss';
 
-import './js/nav_link_active.js';
+
 // start the Stimulus application
 import './bootstrap';
 

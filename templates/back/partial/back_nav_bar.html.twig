@@ -12,40 +12,40 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ path('app_back_question_index') }}">Question</a>
+                            <a class="nav-link {% if 'app_back_question' in app.request.get('_route')%}active{% endif %}" href="{{ path('app_back_question_index') }}">Question</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_back_answer_index') }}"><i class="bi bi-film"></i>Réponse</a>
+                            <a class="nav-link {% if 'app_back_answer' in app.request.get('_route')%}active{% endif %}" href="{{ path('app_back_answer_index') }}"><i class="bi bi-film"></i>Réponse</a>
                         </li>
 
                     
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_back_game_index') }}">Jeu</a>
+                            <a class="nav-link {% if 'app_back_game' in app.request.get('_route')%}active{% endif %}" href="{{ path('app_back_game_index') }}">Jeu</a>
                         </li>
                     
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_back_level_index') }}"><i class="bi bi-bookmark"></i>Difficulté</a>
+                            <a class="nav-link {% if 'app_back_level' in app.request.get('_route')%}active{% endif %}" href="{{ path('app_back_level_index') }}"><i class="bi bi-bookmark"></i>Difficulté</a>
                         </li>
                         
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_back_category_index') }}"><i class="bi bi-bookmark"></i>Catégorie</a>
-                        </li>
-                    
-                        
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_back_question_answer_index') }}"><i class="bi bi-bookmark"></i>QuestionRéponse</a>
+                            <a class="nav-link {% if 'app_back_category' in app.request.get('_route')%}active{% endif %}" href="{{ path('app_back_category_index') }}"><i class="bi bi-bookmark"></i>Catégorie</a>
                         </li>
                     
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_back_user_game_answer_index') }}"><i class="bi bi-bookmark"></i>UserJeuRéponse</a>
+                            <a class="nav-link {% if 'app_back_question_answer' in app.request.get('_route')%}active{% endif %}" href="{{ path('app_back_question_answer_index') }}"><i class="bi bi-bookmark"></i>QuestionRéponse</a>
                         </li>
                     
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_back_user_index') }}"><i class="bi bi-bookmark"></i>Membre</a>
+                            <a class="nav-link {% if 'app_back_user_game_answer' in app.request.get('_route')%}active{% endif %}" href="{{ path('app_back_user_game_answer_index') }}"><i class="bi bi-bookmark"></i>UserJeuRéponse</a>
+                        </li>
+                    
+                        
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'app_back_user' in app.request.get('_route')%}active{% endif %}" href="{{ path('app_back_user_index') }}"><i class="bi bi-bookmark"></i>Membre</a>
                         </li>
                     
                        

@@ -2,6 +2,8 @@
 
 namespace App\Form;
 
+use App\Entity\Answer;
+use App\Entity\Question;
 use App\Entity\QuestionAnswer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
