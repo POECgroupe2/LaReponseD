@@ -41,16 +41,15 @@ function startCountDown(seconds, element, nb) {
 }
 
 /* Récupérer la réponse choisie */
-let i; //Nombre de questions
-for (i=1; i<=5; i++) {
-    let j; //Nombre de réponses par question
-    for (j=1; j<=4; j++) {
+function getAnswer(eachAnswer, i) {
+    console.log(eachAnswer.value);
+    endQuestion(i)
+}
+
+for (let i=1; i<=5; i++) { //Numéro de question
+    for (let j=1; j<=4; j++) { //Numéro de réponse
         let eachAnswer = document.querySelector("#rep" + i + "-" + j);
-        function getAnswer() {
-            console.log(eachAnswer.value);
-            endQuestion(i)
-        }
-        eachAnswer.addEventListener("click", getAnswer)
+        eachAnswer.addEventListener("click", event => getAnswer(event.target, i))
     }
 }
 
@@ -60,9 +59,7 @@ function endQuestion(nb) {
     clearInterval(countInterval);
     element.textContent = "20 secondes";
 
-    /* SOUCI EN LIGNES 65-67 QUI BLOQUE LA SUITE */
     let quest = document.querySelector("#question" + nb);
-    console.log(quest); //Affiche "null" alors qu'il existe bien...
     /* Faire disparaître la question et ses réponses */
     quest.style.display = "none";
 

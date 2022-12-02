@@ -12,4 +12,4 @@ import './styles/app.scss';
 import './bootstrap';
 
 // JavaScript perso
-import './javascript/scripts';
+import './js/scripts';
