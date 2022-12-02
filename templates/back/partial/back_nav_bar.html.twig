@@ -1,5 +1,6 @@
+
         <!-- Nav -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg back_nav navbar-dark bg-dark">
             <div class="container-fluid">
                 <a href="{{ path('app_back_question_answer_index') }}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none header-logo">
                     <img src="{{ asset('favicon.png') }}" height="50" alt="Logo O'flix">
@@ -12,7 +13,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
                         <li class="nav-item">
-                            <a class="nav-link {% if 'app_back_question' in app.request.get('_route')%}active{% endif %}" href="{{ path('app_back_question_index') }}">Question</a>
+                            <a class="nav-link {% if app.request.get('_route') in ['app_back_question_index','app_back_question_new','app_back_question_show','app_back_question_edit'] %} active {% endif %}" href="{{ path('app_back_question_index') }}">Question</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {% if 'app_back_answer' in app.request.get('_route')%}active{% endif %}" href="{{ path('app_back_answer_index') }}"><i class="bi bi-film"></i>Réponse</a>
@@ -35,7 +36,7 @@
                     
                         
                         <li class="nav-item">
-                            <a class="nav-link {% if 'app_back_question_answer' in app.request.get('_route')%}active{% endif %}" href="{{ path('app_back_question_answer_index') }}"><i class="bi bi-bookmark"></i>QuestionRéponse</a>
+                            <a class="nav-link {% if app.request.get('_route') starts with 'app_back_question_answer' %}active{% endif %}" href="{{ path('app_back_question_answer_index') }}"><i class="bi bi-bookmark"></i>QuestionRéponse</a>
                         </li>
                     
                         

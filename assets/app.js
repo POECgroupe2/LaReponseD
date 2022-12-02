@@ -13,3 +13,4 @@ import './styles/scss/app.scss';
 import './bootstrap';
 
 import 'bootstrap/dist/js/bootstrap.bundle';
+
