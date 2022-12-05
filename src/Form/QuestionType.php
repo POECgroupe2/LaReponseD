@@ -40,14 +40,14 @@ class QuestionType extends AbstractType
                 'expanded' => false,
                 'required' => true
             ])
-            ->add('games', EntityType::class, [
-                'label' => 'Choisir le ou les jeux',
-                'choice_label' => 'name',
-                'class' => Game::class,
-                'multiple' => true,
-                'expanded' => false,
-                'required' => true
-            ])
+            // ->add('games', EntityType::class, [
+            //     'label' => 'Choisir le ou les jeux',
+            //     'choice_label' => 'name',
+            //     'class' => Game::class,
+            //     'multiple' => true,
+            //     'expanded' => false,
+            //     'required' => true
+            // ])
         ;
     }
 

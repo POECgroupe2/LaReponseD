@@ -1,12 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New UserGameAnswer{% endblock %}
+{% block title %}Ajout UserGameAnswer
+{% endblock %}
 
 {% block body %}
-{% include 'back/partial/back_nav_bar.html.twig' %}
-    <h1>Create new UserGameAnswer</h1>
-
-    {{ include('back/user_game_answer/_form.html.twig') }}
-
-    <a href="{{ path('app_back_user_game_answer_index') }}">back to list</a>
-{% endblock %}
+	{% include 'back/partial/back_nav_bar.html.twig' %}
+	<div class="container pt-5">
+		<div class="row mb-2">
+			<a href="{{ path('app_back_user_game_answer_index') }}">Retour à la liste</a>
+			<h1>Ajouter UserGameAnswer</h1>
+			<div class="col-8 mx-auto">
+				{{ include('back/user_game_answer/_form.html.twig') }}
+			</div>
+		</div>
+	</div>
+</div></div>{% endblock %}
