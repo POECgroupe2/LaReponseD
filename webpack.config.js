@@ -34,11 +34,11 @@ Encore
 
     // IMPORT IMG => public/build/images
 
-    .copyFiles({
-        from: './assets/img',
-        to: 'img/[path][name].[ext]',
-        pattern: /\.(png|jpg|webp)$/
-      })
+    // .copyFiles({
+    //     from: './assets/img',
+    //     to: 'img/[path][name].[ext]',
+    //     pattern: /\.(png|jpg|webp)$/
+    //   })
 
       
     /*
