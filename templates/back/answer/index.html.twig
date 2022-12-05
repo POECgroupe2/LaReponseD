@@ -1,38 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Answer index{% endblock %}
+{% block title %}Liste des réponses
+{% endblock %}
 
 {% block body %}
-{% include 'back/partial/back_nav_bar.html.twig' %}
-    <h1>Answer index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Content</th>
-                <th>CreatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for answer in answers %}
-            <tr>
-                <td>{{ answer.id }}</td>
-                <td>{{ answer.content }}</td>
-                <td>{{ answer.createdAt ? answer.createdAt|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_back_answer_show', {'id': answer.id}) }}">show</a>
-                    <a href="{{ path('app_back_answer_edit', {'id': answer.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_back_answer_new') }}">Create new</a>
+	{% include 'back/partial/back_nav_bar.html.twig' %}
+	<div class="container pt-5">
+		<div class="row mb-2">
+			<h1>Liste des réponses</h1>
+			<div class="col-10 mx-auto">
+				<a href="{{ path('app_back_answer_new') }}">Ajouter une réponse</a>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Content</th>
+							<th>CreatedAt</th>
+							<th>actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for answer in answers %}
+							<tr>
+								<td>{{ answer.id }}</td>
+								<td>{{ answer.content }}</td>
+								<td>{{ answer.createdAt ? answer.createdAt|date('Y-m-d') : '' }}</td>
+								<td>
+									<a class="btn btn-sm btn_show" href="{{ path('app_back_answer_show', {'id': answer.id}) }}">Voir</a>
+									<a class="btn btn-sm btn_edit" href="{{ path('app_back_answer_edit', {'id': answer.id}) }}">Modifier</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="4">Réponses non trouvées</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 {% endblock %}

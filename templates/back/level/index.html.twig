@@ -1,36 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Level index{% endblock %}
+{% block title %}Liste des niveaux
+{% endblock %}
 
 {% block body %}
-{% include 'back/partial/back_nav_bar.html.twig' %}
-    <h1>Level index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for level in levels %}
-            <tr>
-                <td>{{ level.id }}</td>
-                <td>{{ level.name }}</td>
-                <td>
-                    <a href="{{ path('app_back_level_show', {'id': level.id}) }}">show</a>
-                    <a href="{{ path('app_back_level_edit', {'id': level.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_back_level_new') }}">Create new</a>
+	{% include 'back/partial/back_nav_bar.html.twig' %}
+	<div class="container pt-5">
+		<div class="row mb-2">
+			<h1>Liste des niveaux</h1>
+			<div class="col-10 mx-auto">
+				<a href="{{ path('app_back_level_new') }}">Ajouter un niveau</a>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for level in levels %}
+							<tr>
+								<td>{{ level.id }}</td>
+								<td>{{ level.name }}</td>
+								<td>
+									<a class="btn btn-sm btn_show" href="{{ path('app_back_level_show', {'id': level.id}) }}">Voir</a>
+									<a class="btn btn-sm btn_edit" href="{{ path('app_back_level_edit', {'id': level.id}) }}">Modifier</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="3">Niveau non trouvés</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 {% endblock %}
