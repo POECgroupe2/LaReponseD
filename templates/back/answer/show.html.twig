@@ -8,8 +8,13 @@
 	<div class="container pt-5">
 		<div class="row mb-2">
 			<div class="col-8 mx-auto">
-				<h1>Réponse</h1>
-				<a href="{{ path('app_back_answer_index') }}">Retour à  la liste</a>
+				<h1 class="text-center my-5">Réponse</h1>
+				<p class="my-3">
+					{% for questions in answer.questionAnswers %}
+						{{ questions.question.content }}
+					{% endfor %}
+				</p>
+				<a class="btn btn_return mb-5" href="{{ path('app_back_answer_index') }}">Retour à  la liste</a>
 				<table class="table">
 					<tbody>
 						<tr>
