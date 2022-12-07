@@ -5,9 +5,9 @@ namespace App\DataFixtures;
 use App\Entity\Level;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
-class LevelFixture extends Fixture implements OrderedFixtureInterface
+
+class LevelFixture extends Fixture 
 {
     public function load(ObjectManager $manager): void
     {
@@ -31,7 +31,7 @@ class LevelFixture extends Fixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 2;
+        return 1;
     }
 }
 
