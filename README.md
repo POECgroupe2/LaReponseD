@@ -31,3 +31,21 @@ npm run build
 ```php
 npm run watch
 ```
+
+- Création BDD:
+  
+```php
+php bin/console doctrine:database:create
+```
+
+- Migration:
+  
+```php
+php bin/console doctrine:migration:migrate
+```
+
+- Fixture:
+  
+```php
+php bin/console doctrine:fixture:load    
+```
