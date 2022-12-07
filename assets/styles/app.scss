@@ -1,6 +1,9 @@
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
+// Import des variables
+@import "variables.scss";
+
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 16px;
@@ -15,47 +18,91 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgb(0, 0, 175);
+    background: $backCol;
     height: 148px;
     width: 100%;
     color: white;
-    border-bottom: 2px red solid;
+    border-bottom: $borders;
 
     >#logo {
         height: 80px;
         width: 80px;
         text-align: center;
         border:1px white solid;
-        margin-left: 40px
+        margin-left: 40px;
+
+        @media #{$mq443} {
+            margin-left: 3%;
+        }
     }
 
-    >nav {
+    >.front_nav {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
         width: 60%;
+        margin-right: 40px;
 
         >.navLink {
-            background: black;
-            color: white;
+            background: $black;
+            color: $white;
             font-size: 1.5em;
             text-decoration: none;
             padding: 10px 20px;
-            border: 2px red solid;
+            border: $borders;
             border-radius: 50%;
             margin: 0 10px;
             &:hover {
-                background: white;
-                color: black
+                background: $white;
+                color: $black
+            }
+
+            @media #{$mq700} {
+                font-size: 1.3em
+            }
+            @media #{$mq655} {
+                font-size: 1.2em
+            }
+            @media #{$mq620} {
+                font-size: 1.1em
+            }
+            @media #{$mq443} {
+                font-size: 1em
+            }
+            @media #{$mq393} {
+                margin: 5px 10px
             }
         }
+
+        @media #{$mq885} {
+            width: unset;
+            min-width: unset
+        }
+        @media #{$mq750} {
+            margin-right: 3%;
+        }
+        @media #{$mq620} {
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 310px
+        }
+        @media #{$mq443} {
+            width: 290px
+        }
+        @media #{$mq393} {
+            width: 250px
+        }
+    }
+
+    @media #{$mq393} {
+        height: 180px
     }
 }
 
 /* Contenu principal */
-main {
+.front_main {
     background-color: rgb(20, 200, 250);
-    background-image: url("../images/fond_bleu.jpg");
+    background-image: url("../img/fond_bleu.jpg");
     background-size: cover;
     text-align: center;
     padding-top: 50px;
@@ -64,9 +111,9 @@ main {
     >#titles, >#explain, >#count-down-timer, .question, .reponse, #result {
         background: rgba(255, 255, 255, 0.6);
         width: 90%;
-        max-width: 1200px;
+        max-width: 1170px;
         padding: 0 20px 10px 20px;
-        border: 2px red solid;
+        border: $borders;
         border-radius: 15px;
         margin: 50px auto
     }
@@ -79,20 +126,35 @@ main {
     h1 {
         font-size: 3em;
         text-transform: uppercase;
-        margin: 30px 0
+        margin: 30px 0;
+
+        @media #{$mq443} {
+            font-size: 2.5em;
+        }
+        @media #{$mq393} {
+            font-size: 2.2em;
+        }
     }
 
     h2 {
-        font-size: 1.5em
-    }
+        font-size: 1.5em;
 
-    >#explain p {
-        font-size: 1.2em
+        @media #{$mq443} {
+            font-size: 1.3em;
+        }
     }
 
     >#explain h3 {
         font-size: 1.3em;
         margin: 10px 0
+    }
+
+    >#explain p {
+        font-size: 1.2em;
+
+        @media #{$mq443} {
+            font-size: 1.1em;
+        }
     }
 
     >#buttons {
@@ -103,16 +165,16 @@ main {
         >.eachButton {
             cursor: pointer;
             display: none;
-            background: black;
-            color: white;
+            background: $black;
+            color: $white;
             font-size: 1em;
             padding: 10px 20px;
-            border: 2px red solid;
+            border: $borders;
             border-radius: 50%;
             margin: 0 auto;
             &:hover {
-                background: white;
-                color: black
+                background: $white;
+                color: $black
             }
         }
         
@@ -152,6 +214,9 @@ main {
 
                 >.reponse {
                     cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     width: 44%;
                     max-width: 400px;
                     color: black;
@@ -181,24 +246,65 @@ footer {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background: rgb(0, 0, 175);
+    background: $backCol;
     height: 98px;
     width: 100%;
     color: white;
-    border-top: 2px red solid;
+    border-top: $borders;
 
-    >#logo {
+    >#footer_logo {
         height: 60px;
         width: 60px;
         text-align: center;
         border:1px white solid;
-        margin-left: 40px
+        margin-left: 40px;
+
+        @media #{$mq443} {
+            margin-left: 3%;
+        }
     }
 
-    >div {
+    >.names {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
         width: 80%;
+        height: 100%;
         font-weight: bold;
-        text-align: center;
-        margin: 0 auto
+        margin: 0 auto;
+
+        @media #{$mq620} {
+            width: 320px
+        }
+        @media #{$mq393} {
+            width: 280px
+        }
+
+        >.eachName {
+            background: $black;
+            color: $white;
+            font-size: 1em;
+            padding: 5px 10px;
+            border: $borders;
+            border-radius: 10px;
+            margin: 5px 10px;
+            &:hover {
+                background: $white;
+                color: $black
+            }
+
+            @media #{$mq885} {
+                font-size: 0.9em;
+            }
+            @media #{$mq393} {
+                font-size: 0.7em;
+            }
+        }
+    }
+
+    @media #{$mq620} {
+        height: 120px
     }
 }

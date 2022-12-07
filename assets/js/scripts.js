@@ -18,7 +18,7 @@ function getBlock(nb) {
     /* Faire apparaître la question et ses réponses */
     document.querySelector("#question" + nb).style.display = "block";
 
-    /* Actionner le compteur */
+    /* Actionner le compteur */ /* TROUVER COMMENT EMPECHER LE REDEMARRAGE... */
     startCountDown(seconds, element, nb)
 }
 
@@ -42,7 +42,7 @@ function startCountDown(seconds, element, nb) {
 
 /* Récupérer la réponse choisie */
 function getAnswer(eachAnswer, i) {
-    console.log(eachAnswer.value);
+    console.log(eachAnswer.innerText);
     endQuestion(i)
 }
 
@@ -57,6 +57,7 @@ for (let i=1; i<=5; i++) { //Numéro de question
 function endQuestion(nb) {
     /* Arrêter le compteur */
     clearInterval(countInterval);
+    //console.log(countInterval);
     element.textContent = "20 secondes";
 
     let quest = document.querySelector("#question" + nb);

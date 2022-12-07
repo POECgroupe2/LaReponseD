@@ -5,28 +5,30 @@
 {% block body %}
     <header>
         <img src="logo.jpg" alt="LOGO" id="logo">
-        <nav>
+        <nav class="front_nav">
             <a href="#" class="navLink">Classement</a>
             <a href="#" class="navLink">Inscription</a>
             <a href="#" class="navLink">Connexion</a>
-            <a href="#" class="navLink">Déconnexion</a>
+            <a href="#" class="navLink" style="display: none">Déconnexion</a>
         </nav>
     </header>
 
-    <main>
+    <main class="front_main">
+        <!--<div style="width:725px; height: 5px; border: 1px black solid"></div>-->
         <section id="titles">
             <h1>La réponse D !</h1>
-            <h2>Bienvenue dans ce jeu de quizz en ligne !</h2>
+            <h2>Bienvenue dans ce jeu de quizz en&nbsp;ligne&nbsp;!</h2>
             <h2>
-                N'hésitez pas à vous inscrire dès maintenant pour découvrir le jeu complet<br>
-                ou simplement à jouer à la mini-partie de 5 questions qui vous est offerte ci-dessous...
+                N'hésitez pas à vous inscrire dès maintenant pour découvrir le jeu complet ou simplement à
+                jouer à la mini&#8209;partie de 5 questions qui vous est offerte ci&#8209;dessous...
+                <!-- Le caractère "&#8209;" est le trait d'union insécable. -->
             </h2>
         </section>
 
         <section id="explain">
             <h3>Comment jouer ?</h3>
-            <p>Cliquer sur le bouton de la question ci-dessous déclenche le compteur et fait apparaître la
-            question et ses réponses.</p>
+            <p>Cliquer sur le bouton de la question ci&#8209;dessous déclenche le compteur et fait apparaître
+            la question et ses réponses.</p>
             <p>Cliquer sur une réponse la valide et fait disparaître l'ensemble. Il n'est alors plus
             possible de modifier ce choix.</p>
             <p>Si vous n'avez pas répondu dans le temps imparti, la question et les réponses disparaissent
@@ -46,12 +48,12 @@
                 </div>
                 <div class="reponses">
                     <div class="repLigne">
-                        <input type="button" class="reponse" id="rep1-1" value="Jupiter">
-                        <input type="button" class="reponse" id="rep1-2" value="Saturne">
+                        <span class="reponse" id="rep1-1">Jupiter</span>
+                        <span class="reponse" id="rep1-2">Saturne</span>
                     </div>
                     <div class="repLigne">
-                        <input type="button" class="reponse" id="rep1-3" value="Uranus">
-                        <input type="button" class="reponse" id="rep1-4" value="Neptune">
+                        <span class="reponse" id="rep1-3">Uranus</span>
+                        <span class="reponse" id="rep1-4">Neptune</span>
                     </div>
                 </div>
             </article>
@@ -62,12 +64,12 @@
                 </div>
                 <div class="reponses">
                     <div class="repLigne">
-                        <input type="button" class="reponse" id="rep2-1" value="Deep Purple">
-                        <input type="button" class="reponse" id="rep2-2" value="Guns N' Roses">
+                        <span class="reponse" id="rep2-1">Deep Purple</span>
+                        <span class="reponse" id="rep2-2">Guns N' Roses</span>
                     </div>
                     <div class="repLigne">
-                        <input type="button" class="reponse" id="rep2-3" value="Linkin Park">
-                        <input type="button" class="reponse" id="rep2-4" value="Motörhead">
+                        <span class="reponse" id="rep2-3">Linkin Park</span>
+                        <span class="reponse" id="rep2-4">Motörhead</span>
                     </div>
                 </div>
             </article>
@@ -78,12 +80,12 @@
                 </div>
                 <div class="reponses">
                     <div class="repLigne">
-                        <input type="button" class="reponse" id="rep3-1" value="Charles de Gaulle">
-                        <input type="button" class="reponse" id="rep3-2" value="Georges Pompidou">
+                        <span class="reponse" id="rep3-1">Charles de Gaulle</span>
+                        <span class="reponse" id="rep3-2">Georges Pompidou</span>
                     </div>
                     <div class="repLigne">
-                        <input type="button" class="reponse" id="rep3-3" value="Valéry Giscard d'Estaing">
-                        <input type="button" class="reponse" id="rep3-4" value="Alain Poher">
+                        <span class="reponse" id="rep3-3">Valéry Giscard d'Estaing</span>
+                        <span class="reponse" id="rep3-4">Alain Poher</span>
                     </div>
                 </div>
             </article>
@@ -95,12 +97,12 @@
                 </div>
                 <div class="reponses">
                     <div class="repLigne">
-                        <input type="button" class="reponse" id="rep4-1" value="La Guardia">
-                        <input type="button" class="reponse" id="rep4-2" value="La Niña">
+                        <span class="reponse" id="rep4-1">La Guardia</span>
+                        <span class="reponse" id="rep4-2">La Niña</span>
                     </div>
                     <div class="repLigne">
-                        <input type="button" class="reponse" id="rep4-3" value="La Pinta">
-                        <input type="button" class="reponse" id="rep4-4" value="La Santa Maria">
+                        <span class="reponse" id="rep4-3">La Pinta</span>
+                        <span class="reponse" id="rep4-4">La Santa Maria</span>
                     </div>
                 </div>
             </article>
@@ -111,12 +113,12 @@
                 </div>
                 <div class="reponses">
                     <div class="repLigne">
-                        <input type="button" class="reponse" id="rep5-1" value="3 novembre 1993">
-                        <input type="button" class="reponse" id="rep5-2" value="15 février 1994">
+                        <span class="reponse" id="rep5-1">3 novembre 1993</span>
+                        <span class="reponse" id="rep5-2">15 février 1994</span>
                     </div>
                     <div class="repLigne">
-                        <input type="button" class="reponse" id="rep5-3" value="1er mai 1994">
-                        <input type="button" class="reponse" id="rep5-4" value="4 mai 1995">
+                        <span class="reponse" id="rep5-3">1er mai 1994</span>
+                        <span class="reponse" id="rep5-4">4 mai 1995</span>
                     </div>
                 </div>
             </article>
@@ -127,7 +129,11 @@
     </main>
 
     <footer>
-        <img src="logo.jpg" alt="LOGO" id="logo">
-        <div>Christophe NEDAUD - Gilbert FRADET - Jérôme FROMANTIN</div>
+        <img src="logo.jpg" alt="LOGO" id="footer_logo">
+        <div class="names">
+            <span class="eachName">Christophe NEDAUD</span>
+            <span class="eachName">Gilbert&nbsp;FRADET</span>
+            <span class="eachName">Jérôme&nbsp;FROMANTIN</span>
+        </div>
     </footer>
 {% endblock %}
