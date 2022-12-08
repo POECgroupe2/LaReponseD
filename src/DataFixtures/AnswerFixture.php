@@ -161,6 +161,225 @@ class AnswerFixture extends Fixture implements OrderedFixtureInterface
         $manager->persist($answer29);
         $this->addReference('answer29', $answer29);
 
+        $answer30 = new Answer();
+        $answer30->setContent('Christopher Nolan');
+        $manager->persist($answer30);
+        $this->addReference('answer30', $answer30);
+
+        $answer31 = new Answer();
+        $answer31->setContent('Jean-Pierre Jeunet');
+        $manager->persist($answer31);
+        $this->addReference('answer31', $answer31);
+
+        $answer32 = new Answer();
+        $answer32->setContent('Le pain de mie');
+        $manager->persist($answer32);
+        $this->addReference('answer32', $answer32);
+
+        $answer33 = new Answer();
+        $answer33->setContent('La ficelle');
+        $manager->persist($answer33);
+        $this->addReference('answer33', $answer33);
+
+        $answer34 = new Answer();
+        $answer34->setContent('La baguette');
+        $manager->persist($answer34);
+        $this->addReference('answer34', $answer34);
+
+        $answer35 = new Answer();
+        $answer35->setContent('Le pain de campagne');
+        $manager->persist($answer35);
+        $this->addReference('answer35', $answer35);
+
+        $answer36 = new Answer();
+        $answer36->setContent('La farine');
+        $manager->persist($answer36);
+        $this->addReference('answer36', $answer36);
+
+        $answer37 = new Answer();
+        $answer37->setContent('L\'oeuf');
+        $manager->persist($answer37);
+        $this->addReference('answer37', $answer37);
+
+        $answer38 = new Answer();
+        $answer38->setContent('L\'eau');
+        $manager->persist($answer38);
+        $this->addReference('answer38', $answer38);
+
+        $answer39 = new Answer();
+        $answer39->setContent('La levure');
+        $manager->persist($answer39);
+        $this->addReference('answer39', $answer39);
+
+        $answer40 = new Answer();
+        $answer40->setContent('Paris');
+        $manager->persist($answer40);
+        $this->addReference('answer40', $answer40);
+
+        $answer41 = new Answer();
+        $answer41->setContent('Strasbourg');
+        $manager->persist($answer41);
+        $this->addReference('answer41', $answer41);
+
+        $answer42 = new Answer();
+        $answer42->setContent('Lille');
+        $manager->persist($answer42);
+        $this->addReference('answer42', $answer42);
+
+        $answer43 = new Answer();
+        $answer43->setContent('Toulouse');
+        $manager->persist($answer43);
+        $this->addReference('answer43', $answer43);
+
+        $answer44 = new Answer();
+        $answer44->setContent('Le calisson');
+        $manager->persist($answer44);
+        $this->addReference('answer44', $answer44);
+
+        $answer45 = new Answer();
+        $answer45->setContent('La pâte de fruits');
+        $manager->persist($answer45);
+        $this->addReference('answer45', $answer45);
+
+        $answer46 = new Answer();
+        $answer46->setContent('Le nougat');
+        $manager->persist($answer46);
+        $this->addReference('answer46', $answer46);
+
+        $answer47 = new Answer();
+        $answer47->setContent('La guimauve');
+        $manager->persist($answer47);
+        $this->addReference('answer47', $answer47);
+
+        $answer48 = new Answer();
+        $answer48->setContent('Caen');
+        $manager->persist($answer48);
+        $this->addReference('answer48', $answer48);
+
+        $answer49 = new Answer();
+        $answer49->setContent('Le Mans');
+        $manager->persist($answer49);
+        $this->addReference('answer49', $answer49);
+
+        $answer50 = new Answer();
+        $answer50->setContent('Angoulème');
+        $manager->persist($answer50);
+        $this->addReference('answer50', $answer50);
+
+        $answer51 = new Answer();
+        $answer51->setContent('Lyon');
+        $manager->persist($answer51);
+        $this->addReference('answer51', $answer51);
+
+        $answer52 = new Answer();
+        $answer52->setContent('Les duchés');
+        $manager->persist($answer52);
+        $this->addReference('answer52', $answer52);
+
+        $answer53 = new Answer();
+        $answer53->setContent('Les boudoirs');
+        $manager->persist($answer53);
+        $this->addReference('answer53', $answer53);
+
+        $answer54 = new Answer();
+        $answer54->setContent('Les magdalas');
+        $manager->persist($answer54);
+        $this->addReference('answer54', $answer54);
+
+        $answer55 = new Answer();
+        $answer55->setContent('Les navettes');
+        $manager->persist($answer55);
+        $this->addReference('answer55', $answer55);
+
+        $answer56 = new Answer();
+        $answer56->setContent('Rhum');
+        $manager->persist($answer56);
+        $this->addReference('answer56', $answer56);
+
+        $answer57 = new Answer();
+        $answer57->setContent('Vodka');
+        $manager->persist($answer57);
+        $this->addReference('answer57', $answer57);
+
+        $answer58 = new Answer();
+        $answer58->setContent('Cognac');
+        $manager->persist($answer58);
+        $this->addReference('answer58', $answer58);
+
+        $answer59 = new Answer();
+        $answer59->setContent('Gin');
+        $manager->persist($answer59);
+        $this->addReference('answer59', $answer59);
+
+        $answer60 = new Answer();
+        $answer60->setContent('10 kg');
+        $manager->persist($answer60);
+        $this->addReference('answer60', $answer60);
+
+        $answer61 = new Answer();
+        $answer61->setContent('20 kg');
+        $manager->persist($answer61);
+        $this->addReference('answer61', $answer61);
+
+        $answer62 = new Answer();
+        $answer62->setContent('40 kg');
+        $manager->persist($answer62);
+        $this->addReference('answer62', $answer62);
+
+        $answer63 = new Answer();
+        $answer63->setContent('65 kg');
+        $manager->persist($answer63);
+        $this->addReference('answer63', $answer63);
+
+        $answer64 = new Answer();
+        $answer64->setContent('Le Cailladou');
+        $manager->persist($answer64);
+        $this->addReference('answer64', $answer64);
+
+        $answer65 = new Answer();
+        $answer65->setContent('La Cancoillotte');
+        $manager->persist($answer65);
+        $this->addReference('answer65', $answer65);
+
+        $answer66 = new Answer();
+        $answer66->setContent('L\'Écume de Wimereux');
+        $manager->persist($answer66);
+        $this->addReference('answer66', $answer66);
+
+        $answer67 = new Answer();
+        $answer67->setContent('La Mimolette');
+        $manager->persist($answer67);
+        $this->addReference('answer67', $answer67);
+
+        $answer68 = new Answer();
+        $answer68->setContent('La tarte au citron');
+        $manager->persist($answer68);
+        $this->addReference('answer68', $answer68);
+
+        $answer69 = new Answer();
+        $answer69->setContent('La tarte aux fraises');
+        $manager->persist($answer69);
+        $this->addReference('answer69', $answer69);
+
+        $answer70 = new Answer();
+        $answer70->setContent('La galette des rois');
+        $manager->persist($answer70);
+        $this->addReference('answer70', $answer70);
+
+        $answer71 = new Answer();
+        $answer71->setContent('L\éclair au chocolat');
+        $manager->persist($answer71);
+        $this->addReference('answer71', $answer71);
+
+
+
+
+
+
+
+
+
+
 
 
         
