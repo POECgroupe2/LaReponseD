@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\UserGameAnswerRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserGameAnswerRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: UserGameAnswerRepository::class)]
 class UserGameAnswer
@@ -12,16 +13,20 @@ class UserGameAnswer
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['api_users_browse', 'api_users_read'])]
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Groups(['api_users_browse', 'api_users_read'])]
     private ?bool $good = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[Groups(['api_users_browse', 'api_users_read'])]
     private ?string $delayAnswer = null;
 
     #[ORM\ManyToOne(inversedBy: 'userGameAnswers')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['api_users_browse', 'api_users_read'])]
     private ?Answer $answer = null;
 
     #[ORM\ManyToOne(inversedBy: 'userGameAnswers')]

@@ -2,12 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\GameRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\GameRepository;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: GameRepository::class)]
 class Game
@@ -15,9 +16,11 @@ class Game
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['api_users_browse'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['api_users_browse', 'api_users_read'])]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
@@ -25,6 +28,7 @@ class Game
     private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\ManyToMany(targetEntity: Question::class, mappedBy: 'games')]
+    #[Groups(['api_users_browse', 'api_users_read'])]
     private Collection $questions;
 
     #[ORM\OneToMany(mappedBy: 'game', targetEntity: UserGameAnswer::class)]
