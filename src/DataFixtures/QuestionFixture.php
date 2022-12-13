@@ -7,6 +7,7 @@ use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
+
 class QuestionFixture extends Fixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager): void
@@ -18,10 +19,10 @@ class QuestionFixture extends Fixture implements OrderedFixtureInterface
         $manager->persist($question);
         $this->addReference('question1', $question);
 
-        $question1 = new Question();
-        $question1->setContent('Quel acteur interprète Aquaman dans la série de films réalisés par James Wan ?');
-        $question1->setCategory($this->getReference('cinema'));
-        $manager->persist($question1);
+        $question = new Question();
+        $question->setContent('Quel acteur interprète Aquaman dans la série de films réalisés par James Wan ?');
+        $question->setCategory($this->getReference('cinema'));
+        $manager->persist($question);
         $this->addReference('question2', $question);
 
         $question = new Question();

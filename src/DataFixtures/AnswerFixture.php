@@ -367,7 +367,7 @@ class AnswerFixture extends Fixture implements OrderedFixtureInterface
         $this->addReference('answer70', $answer70);
 
         $answer71 = new Answer();
-        $answer71->setContent('L\éclair au chocolat');
+        $answer71->setContent('L\'éclair au chocolat');
         $manager->persist($answer71);
         $this->addReference('answer71', $answer71);
 

@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\LevelRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\LevelRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: LevelRepository::class)]
 class Level
@@ -13,9 +14,11 @@ class Level
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['front'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 50, nullable: true)]
+    #[Groups(['front'])]
     private ?string $name = null;
 
     #[ORM\ManyToMany(targetEntity: Question::class, mappedBy: 'levels')]
