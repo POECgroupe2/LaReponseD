@@ -8,9 +8,13 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/scss/app.scss';
 
-
 // start the Stimulus application
 import './bootstrap';
-
 import 'bootstrap/dist/js/bootstrap.bundle';
+
+// JavaScript perso
+import './js/scripts';
+
+// PHP file for the user's answers
+//import './user_answers.php';
 
