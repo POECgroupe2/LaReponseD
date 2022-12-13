@@ -1,0 +1,65 @@
+// css back
+.btn {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.btn_return {
+    background-color: rgb(25, 152, 168);
+    color: white;
+    &:hover {
+        background-color: rgb(25, 174, 194);
+    }
+}
+
+.btn_edit {
+    background-color: #839c10;
+    color: white;
+    &:hover {
+        background-color: #bed16a;
+    }
+}
+
+.btn_edit_show {
+    margin-right: 3em;
+    background-color: #839c10;
+    color: white;
+    &:hover {
+        background-color: #bed16a;
+    }
+}
+
+.btn_delete {
+    background-color: #d53767;
+    color: white;
+    &:hover {
+        background-color: #eb5e88;
+    }
+}
+
+.btn_show {
+    background-color: #007682;
+    color: white;
+    margin-right: 1em;
+    &:hover {
+        background-color: #86d1d0;
+    }
+}
+
+.btn_save {
+    background-color: #333333;
+    color: white;
+    margin-right: 3em;
+    &:hover {
+        background-color: #757171;
+    }
+}
+
+.btn_add {
+    background-color: #007682;
+    color: white;
+    margin-right: 3em;
+    &:hover {
+        background-color: #26b5c5
+    }
+}

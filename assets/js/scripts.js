@@ -35,14 +35,19 @@ function startCountDown(seconds, element, nb) {
         seconds--;
         if (seconds < 0) {
             endQuestion(nb);
-            console.log("Pas de réponse !")
+            console.log("Pas de réponse !");
+            answers.push("none");
+            console.log(answers)
         }
     }, 1000)
 }
 
 /* Récupérer la réponse choisie */
+let answers = []; // Tableau des réponses du joueur.
 function getAnswer(eachAnswer, i) {
     console.log(eachAnswer.innerText);
+    answers.push(eachAnswer.innerText);
+    console.log(answers);
     endQuestion(i)
 }
 
@@ -75,8 +80,86 @@ function endQuestion(nb) {
                 const gameOver = document.querySelector("#result");
                 /* Faire apparaître le bloc final */
                 gameOver.style.display = "inline-block";
-                gameOver.innerHTML = "La partie est finie !"
+                console.log(answers);
+                console.log(JSON.stringify(answers))
+                //requestData();
+                //requestDataAsync()
+                sendUserAnswers()
             }
         }
     }
+}
+
+/* Fonction de test d'appel AJAX synchrone */
+function requestData() {
+    // On crée une instance de l'objet.
+    let appel = new XMLHttpRequest();
+    // On spécifie le mode de transmission des données, l'URL et le mode de transmission de la requête
+    // (false pour synchrone, true pour asynchrone).
+    appel.open("GET", location.href, false);
+    // On exécute la requête.
+    appel.send(null);
+    // On affiche une alerte quand la requête est terminée.
+    if (appel.readyState == 4) alert(appel.response)
+    // Les différentes valeurs de "readyState" sont : 0 (uninitialized), 1 (loading), 2 (loaded),
+    // 3 (interactive) et 4 (complete).
+    // alert(appel.response) redonne tout le code de la page HTML.
+}
+
+/* Fonction de test d'appel AJAX asynchrone */
+function requestDataAsync() {
+    // On crée une instance de l'objet.
+    let appel = new XMLHttpRequest();
+    // On spécifie le mode de transmission des données, l'URL et le mode de transmission de la requête.
+    appel.open("GET", location.href, true);
+    // On utilise l'asynchrone pour afficher une alerte quand la requête est terminée.
+    appel.onreadystatechange = function() {
+        if (appel.readyState == 4) alert(appel.responseText)
+    }
+    // On exécute la requête.
+    appel.send(null);
+}
+
+/* Fonction d'envoi des réponses avec AJAX */
+async function sendUserAnswers() {
+    /*let userAnswers = new XMLHttpRequest();
+    //userAnswers = answers;
+    //console.log("Réponses choisies : " + userAnswers);
+    userAnswers.open("POST", "user_answers.php", true);
+    userAnswers.onreadystatechange = function() {
+        if (userAnswers.readyState == 4) alert(userAnswers.responseText)
+    }
+    // La ligne ci-dessous est requise pour le mode "POST".
+    userAnswers.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    userAnswers.send(answers);*/
+
+    /*let response = await fetch('http://127.0.0.1:8000/build/app.js');
+    if (response.ok) {
+        let json = await response.json();
+        console.log(json)
+    } else {
+            alert('HTTP-Error : ' + response.status)
+    }*/
+
+    /*fetch('http://127.0.0.1:8000/build/app.js')
+        .then(response => response.json())*/
+    
+    let data = {
+        test: answers,
+    };
+    
+    /*let headers: {
+       "Content-Type": "application/json"
+      }*/
+
+    console.log(answers) // Bien lu
+
+    let response = await fetch("http://127.0.0.1:8000", { // PROBLEME
+        method: "POST",
+        headers: "application/json",
+        body: JSON.stringify(data)
+    });
+
+    console.log(response)
+
 }

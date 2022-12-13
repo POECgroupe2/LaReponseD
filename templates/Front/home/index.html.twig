@@ -5,28 +5,79 @@
 {% block body %}
     <header>
         <img src="logo.jpg" alt="LOGO" id="logo">
-        <nav class="front_nav">
-            <a href="#" class="navLink">Classement</a>
-            <a href="#" class="navLink">Inscription</a>
-            <a href="#" class="navLink">Connexion</a>
-            <a href="#" class="navLink" style="display: none">Déconnexion</a>
-        </nav>
+
+        <!-- {# if app.user #} -->
+            <nav class="front_nav">
+                <a href="#" class="navLink">Classement</a>
+                <a href="#" class="navLink">Désinscription</a>
+                <a href="#" class="navLink">Déconnexion</a>
+            </nav>
+        <!-- {# else #} -->
+            <!--
+            <nav class="front_nav">
+                <a href="#" class="navLink">Classement</a>
+                <a href="#" class="navLink">Inscription</a>
+                <a href="#" class="navLink">Connexion</a>
+            </nav>
+            -->
+        <!-- {# endif #} -->
     </header>
 
     <main class="front_main">
-        <!--<div style="width:725px; height: 5px; border: 1px black solid"></div>-->
         <section id="titles">
             <h1>La réponse D !</h1>
-            <h2>Bienvenue dans ce jeu de quizz en&nbsp;ligne&nbsp;!</h2>
-            <h2>
-                N'hésitez pas à vous inscrire dès maintenant pour découvrir le jeu complet ou simplement à
-                jouer à la mini&#8209;partie de 5 questions qui vous est offerte ci&#8209;dessous...
-                <!-- Le caractère "&#8209;" est le trait d'union insécable. -->
-            </h2>
+            <!-- {# if app.user #} -->
+                <h2>Bienvenue <span style="color: red">&lt;User&gt;</span>, nous sommes heureux de vous
+                accueillir&nbsp;!</h2>
+                <h2>Vous avez actuellement <span style="color: red">&lt;Score&gt;</span>&nbsp;points
+                <br>et vous êtes en <span style="color: red">&lt;Place&gt;</span><sup>ème</sup>&nbsp;position
+                dans le classement général...</h2>
+            <!-- {# else #} -->
+                <!--
+                <h2>Bienvenue dans ce jeu de quizz en&nbsp;ligne&nbsp;!</h2>
+                <h2>
+                    N'hésitez pas à vous inscrire dès maintenant pour découvrir le jeu complet ou simplement
+                    à jouer à la mini&#8209;partie de 5 questions qui vous est offerte ci&#8209;dessous...-->
+                    <!-- Le caractère "&#8209;" est le trait d'union insécable. -->
+                <!--
+                </h2>
+                -->
+            <!-- {# endif #} -->
         </section>
+
+        <!-- {# if app.user #} -->
+        <section id="level_categ">
+            <div id="game_choice">
+                <div id="level_div">
+                    <label for="level">Niveau</label>
+                    <select id="level">
+                        <option>Facile</option>
+                        <option>Moyen</option>
+                        <option>Difficile</option>
+                    </select>
+                </div>
+                <div id="categ_div">
+                    <label for="categ">Catégorie</label>
+                    <select id="categ">
+                        <option>Cinéma</option>
+                        <option>Culture générale</option>
+                        <option>Géographie</option>
+                        <option>Histoire</option>
+                        <option>Musique</option>
+                        <option>Sports</option>
+                    </select>
+                </div>
+            </div>
+            <div id="game_validate">Valider</div>
+        </section>
+        <!-- {# endif #} -->
 
         <section id="explain">
             <h3>Comment jouer ?</h3>
+            <!-- {# if app.user #} -->
+            <p>En tant que joueur connecté, vous pouvez choisir ci&#8209;dessus le niveau de difficulté et la
+            catégorie de la partie complète de 15 questions présente ci&#8209;dessous.</p>
+            <!-- {# endif #} -->
             <p>Cliquer sur le bouton de la question ci&#8209;dessous déclenche le compteur et fait apparaître
             la question et ses réponses.</p>
             <p>Cliquer sur une réponse la valide et fait disparaître l'ensemble. Il n'est alors plus
@@ -39,7 +90,23 @@
             <!-- Ici se trouvent des boutons créés dans une boucle JS. -->
         </section>
 
-        <div id="count-down-timer">20 secondes</div>
+        <!-- {# if app.user #} -->
+            <!-- {# if "Niveau facile" #} --> <!-- Par défaut -->
+                <div id="count-down-timer">20 secondes</div>
+            <!-- {# elseif "Niveau moyen" #} -->
+                <!--
+                <div id="count-down-timer">15 secondes</div>
+                -->
+            <!-- {# else #} --> <!-- Niveau difficile -->
+                <!--
+                <div id="count-down-timer">10 secondes</div>
+                -->
+            <!-- {# endif #} -->
+        <!-- {# else #} -->
+            <!--
+            <div id="count-down-timer">20 secondes</div>
+            -->
+        <!-- {# endif #} -->
 
         <section>
             <article id="question1">
@@ -123,9 +190,19 @@
                 </div>
             </article>
 
-            <article id="result"></article>
+            <article id="result">
+                <p>La partie est terminée !</p>
+                <p>Vous avez obtenu <span style="color: red">&lt;Score&gt;</span>&nbsp;points.</p>
+                <p>N'hésitez pas à rejouer ou à vous inscrire pour des parties plus longues !</p>
+            </article>
         </section>
-        <div style="height:300px"></div>
+
+        <!-- {# if app.user #} -->
+        <!-- Ce bouton ne fait que recharger la page. -->
+            <div id="new_game" onClick="window.location.reload()">Nouvelle partie</div>
+        <!-- {# endif #} -->
+
+        <div id="hidden"></div>
     </main>
 
     <footer>

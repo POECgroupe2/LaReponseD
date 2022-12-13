@@ -1,0 +1,23 @@
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Base imports
+@import
+ "base/reset",
+ "base/typography";
+
+ // Components imports
+@import
+  "components/animations",
+  "components/buttons";
+
+// Utils imports
+@import
+ "utils/functions",
+ "utils/mixins",
+ "utils/placeholders",
+ "utils/variables";
+
+ // Global layout import
+@import
+  "layout/global_layout";

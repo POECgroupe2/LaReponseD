@@ -1,0 +1,49 @@
+.front_nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 60%;
+    margin-right: 40px;
+
+    >.navLink {
+        background: $color-black;
+        color: $color-white;
+        font-size: 1.5em;
+        text-decoration: none;
+        padding: 10px 20px;
+        border: $color-borders;
+        border-radius: 50%;
+        margin: 0 10px;
+        &:hover {
+            background: $color-white;
+            color: $color-black
+        }
+
+        @media #{$mq762} {
+            font-size: 1.3em
+        }
+        @media #{$mq688} {
+            font-size: 1.2em
+        }
+        @media #{$mq485} {
+            font-size: 1em;
+            margin: 5px 10px
+        }
+    }
+
+    @media #{$mq885} {
+        width: unset;
+        min-width: unset
+    }
+    @media #{$mq762} {
+        margin-right: 3%;
+    }
+    @media #{$mq688} {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 350px
+    }
+    @media #{$mq485} {
+        width: 250px
+    }
+}
