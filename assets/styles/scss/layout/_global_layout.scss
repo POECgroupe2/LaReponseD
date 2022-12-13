@@ -1,0 +1,25 @@
+@import
+    "header",
+    "navigation";
+
+@import
+    "main";
+
+@import
+    "footer";
+
+// Global
+
+html {
+    font-size: $font-size-default;
+    // scroll-behavior: smooth;
+    // -webkit-overflow-scrolling: touch;
+
+    body {
+        color: $color-black;
+        background-color: rgb(255, 255, 255);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        padding: 0;
+        margin: 0
+    }
+}

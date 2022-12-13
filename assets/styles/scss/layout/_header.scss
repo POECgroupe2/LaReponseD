@@ -1,0 +1,29 @@
+header {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $color-backg;
+    height: 148px;
+    width: 100%;
+    color: white;
+    border-bottom: $color-borders;
+
+    >#logo {
+        height: 80px;
+        width: 80px;
+        text-align: center;
+        border:1px white solid;
+        margin-left: 40px;
+
+        @media #{$mq443} {
+            margin-left: 3%;
+        }
+    }
+
+    @media #{$mq485} {
+        height: 180px
+    }
+}

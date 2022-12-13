@@ -1,0 +1,207 @@
+.front_main {
+    background-color: rgb(20, 200, 250);
+    background-image: url("../../../img/fond_bleu.jpg");
+    background-size: cover;
+    text-align: center;
+    padding-top: 50px;
+    margin-top: 148px;
+
+    >#titles, >#level_categ, >#explain, >#count-down-timer, .question, .reponse, #result {
+        background: rgba(255, 255, 255, 0.6);
+        width: 90%;
+        max-width: 1170px;
+        padding: 0 20px 10px 20px;
+        border: $color-borders;
+        border-radius: 15px;
+        margin: 50px auto
+    }
+
+    h1, h2, h3 {
+        font-size: unset;
+        font-weight: bold
+    }
+
+    h1 {
+        font-size: 3em;
+        text-transform: uppercase;
+        margin: 30px 0;
+
+        @media #{$mq443} {
+            font-size: 2.5em;
+        }
+        @media #{$mq393} {
+            font-size: 2.2em;
+        }
+    }
+
+    h2 {
+        font-size: 1.5em;
+
+        @media #{$mq443} {
+            font-size: 1.3em;
+        }
+    }
+
+    >#level_categ {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 1.2em;
+        padding: 10px 20px;
+
+        >div {
+            margin: 10px 5px
+        }
+
+        >#game_choice {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 96%;
+
+            >#level_div {
+                margin-right: 25px
+            }
+
+            >#categ_div {
+                margin-left: 25px
+            }
+        }
+
+        >#game_validate {
+            cursor: pointer;
+            background: $color-black;
+            color: $color-white;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: $color-borders;
+            border-radius: 50%;
+            margin: 0 auto;
+            &:hover {
+                background: $color-white;
+                color: $color-black
+            }
+        }
+
+        @media #{$mq443} {
+            font-size: 1.1em
+        }
+    }
+
+    >#explain h3 {
+        font-size: 1.3em;
+        margin: 10px 0
+    }
+
+    >#explain p {
+        font-size: 1.2em;
+        margin-top: 20px;
+
+        @media #{$mq443} {
+            font-size: 1.1em;
+        }
+    }
+
+    >#buttons {
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+
+        >.eachButton {
+            cursor: pointer;
+            display: none;
+            background: $color-black;
+            color: $color-white;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: $color-borders;
+            border-radius: 50%;
+            margin: 0 auto;
+            &:hover {
+                background: $color-white;
+                color: $color-black
+            }
+        }
+        
+        >#button1 {
+            display: block
+        }
+    }
+
+    >#count-down-timer {
+        width: 200px;
+        color: red;
+        font-size: 2em;
+        font-weight: bold;
+        padding: 0;
+        margin: 0 auto
+    }
+
+    article {
+        display: none;
+        font-size: 1.2em;
+        margin-top: 50px;
+
+        >.question {
+            width: 80%;
+            max-width: 600px;
+            padding: 10px 20px;
+            margin: 10px auto
+        }
+
+        >.reponses {
+            width: 90%;
+            margin: 10px 5%;
+
+            >.repLigne {
+                display: flex;
+                justify-content: center;
+
+                >.reponse {
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 44%;
+                    max-width: 400px;
+                    color: $color-black;
+                    font-size: 1em;
+                    text-decoration: none;
+                    padding: 10px 20px;
+                    margin: 10px 5px;
+                    &:hover {
+                        background: $color-black;
+                        color: $color-white
+                    }
+                }
+            }
+        }
+    }
+
+    #result {
+        display: none;
+        width: unset;
+        padding: 5px 10px
+    }
+
+    >#new_game {
+        cursor: pointer;
+        display: inline-block;
+        background: $color-black;
+        color: $color-white;
+        font-size: 1em;
+        padding: 10px 20px;
+        border: $color-borders;
+        border-radius: 50%;
+        margin: 50px auto;
+        &:hover {
+            background: $color-white;
+            color: $color-black
+        }
+    }
+
+    >#hidden {
+        height: 100px
+    }
+}
