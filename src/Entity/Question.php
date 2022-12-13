@@ -45,7 +45,7 @@ class Question
     private Collection $games;
 
     #[ORM\OneToMany(mappedBy: 'question', targetEntity: QuestionAnswer::class)]
-    #[Groups(['front'])]
+    #[Groups(['api_game'])]
     private Collection $questionAnswers;
 
     public function __construct()
