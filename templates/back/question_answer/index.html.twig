@@ -1,35 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}QuestionAnswer index{% endblock %}
+{% block title %}QuestionAnswer index
+{% endblock %}
 
 {% block body %}
-    <h1>QuestionAnswer index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>IsGood</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for question_answer in question_answers %}
-            <tr>
-                <td>{{ question_answer.id }}</td>
-                <td>{{ question_answer.isGood ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('app_back_question_answer_show', {'id': question_answer.id}) }}">show</a>
-                    <a href="{{ path('app_back_question_answer_edit', {'id': question_answer.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_back_question_answer_new') }}">Create new</a>
+	{% include 'back/partial/back_nav_bar.html.twig' %}
+	<div class="container pt-5">
+		<div class="row mb-2">
+			<h1 class="text-center my-5">Liste des questionsRéponses</h1>
+			<div class="col-10 mx-auto">
+				<a class="btn btn-primary mb-4" href="{{ path('app_back_question_answer_new') }}">Ajouter une questionRéponse</a>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>IsGood</th>
+							<th>actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for question_answer in question_answers %}
+							<tr>
+								<td>{{ question_answer.id }}</td>
+								<td>{{ question_answer.isGood ? 'Yes' : 'No' }}</td>
+								<td>
+									<a class="btn btn-sm btn_show" href="{{ path('app_back_question_answer_show', {'id': question_answer.id}) }}">Voir</a>
+									<a class="btn btn-sm btn_edit" href="{{ path('app_back_question_answer_edit', {'id': question_answer.id}) }}">Modifier</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="3">Non trouvée</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 {% endblock %}
+

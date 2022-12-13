@@ -1,37 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Game index{% endblock %}
+{% block title %}Game index
+{% endblock %}
 
 {% block body %}
-    <h1>Game index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>CreatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for game in games %}
-            <tr>
-                <td>{{ game.id }}</td>
-                <td>{{ game.name }}</td>
-                <td>{{ game.createdAt ? game.createdAt|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_back_game_show', {'id': game.id}) }}">show</a>
-                    <a href="{{ path('app_back_game_edit', {'id': game.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_back_game_new') }}">Create new</a>
+	{% include 'back/partial/back_nav_bar.html.twig' %}
+	<div class="container pt-5">
+		<div class="row mb-2">
+			<h1 class="text-center my-5">Liste des jeux</h1>
+			<div class="col-10 mx-auto">
+				<a class="btn btn-primary mb-4" href="{{ path('app_back_game_new') }}">Ajouter un jeu</a>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>CreatedAt</th>
+							<th>actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for game in games %}
+							<tr>
+								<td>{{ game.id }}</td>
+								<td>{{ game.name }}</td>
+								<td>{{ game.createdAt ? game.createdAt|date('Y-m-d') : '' }}</td>
+								<td>
+									<a class="btn btn-sm btn_show" href="{{ path('app_back_game_show', {'id': game.id}) }}">Voir</a>
+									<a class="btn btn-sm btn_edit" href="{{ path('app_back_game_edit', {'id': game.id}) }}">Modifier</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="4">Jeux non trouvés</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 {% endblock %}

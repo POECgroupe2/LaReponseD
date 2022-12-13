@@ -1,45 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}Liste des membres
+{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Email</th>
-                <th>Roles</th>
-                <th>Password</th>
-                <th>Pseudo</th>
-                <th>TotalScore</th>
-                <th>CreatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.pseudo }}</td>
-                <td>{{ user.totalScore }}</td>
-                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_back_user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('app_back_user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_back_user_new') }}">Create new</a>
+	{% include 'back/partial/back_nav_bar.html.twig' %}
+	<div class="container pt-5">
+		<div class="row mb-2">
+			<h1 class="text-center my-5">Liste des membres</h1>
+			<div class="col-10 mx-auto">
+				<a class="btn btn-primary mb-4" href="{{ path('app_back_user_new') }}">Ajouter un nouveau membre</a>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Email</th>
+							<th>Roles</th>
+							{# <th>Password</th> #}
+							<th>Pseudo</th>
+							<th>TotalScore</th>
+							<th>CreatedAt</th>
+							<th>actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for user in users %}
+							<tr>
+								<td>{{ user.id }}</td>
+								<td>{{ user.email }}</td>
+								<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+								{# <td>{{ user.password }}</td> #}
+								<td>{{ user.pseudo }}</td>
+								<td>{{ user.totalScore }}</td>
+								<td>{{ user.createdAt ? user.createdAt|date('Y-m-d') : '' }}</td>
+								<td>
+									<a class="btn btn-sm btn_show" href="{{ path('app_back_user_show', {'id': user.id}) }}">Voir</a>
+									<a class="btn btn-sm btn_edit" href="{{ path('app_back_user_edit', {'id': user.id}) }}">Modifier</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="8">Membre non trouvés</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 {% endblock %}

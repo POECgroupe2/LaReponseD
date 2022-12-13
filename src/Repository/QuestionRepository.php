@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Question;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use DoctrineExtensions\Query\Mysql\Rand;
 
 /**
  * @extends ServiceEntityRepository<Question>
@@ -39,6 +40,16 @@ class QuestionRepository extends ServiceEntityRepository
         }
     }
 
+    
+    public function getRandomQuestions(int $limit = 15): array
+    {
+        return $this->createQueryBuilder('q')
+            ->orderBy('Rand()')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 //    /**
 //     * @return Question[] Returns an array of Question objects
 //     */

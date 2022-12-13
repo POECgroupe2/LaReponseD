@@ -2,6 +2,8 @@
 
 namespace App\Form;
 
+use App\Entity\Answer;
+use App\Entity\Question;
 use App\Entity\QuestionAnswer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,7 +26,7 @@ class QuestionAnswerType extends AbstractType
                 'label' => 'Choisir la réponse',
                 'choice_label' => 'content',
                 'class' => Answer::class,
-                'multiple' => true,
+                'multiple' => false,
                 'expanded' => false,
                 'required' => true
             ])

@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Level;
+use App\Entity\Question;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -18,14 +20,14 @@ class LevelType extends AbstractType
                 'constraints' => new NotBlank(),
                 'label' => "Nom du niveau",
             ))
-            ->add('questions', EntityType::class, [
-                'label' => 'Choisir les questions',
-                'choice_label' => 'content',
-                'class' => Question::class,
-                'multiple' => true,
-                'expanded' => false,
-                'required' => true
-            ])
+            // ->add('questions', EntityType::class, [
+            //     'label' => 'Choisir les questions',
+            //     'choice_label' => 'content',
+            //     'class' => Question::class,
+            //     'multiple' => true,
+            //     'expanded' => false,
+            //     'required' => true
+            // ])
         ;
     }
 

@@ -2,12 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\QuestionRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\QuestionRepository;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: QuestionRepository::class)]
 class Question
@@ -15,9 +16,11 @@ class Question
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['api_game'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups(['api_game'])]
     private ?string $content = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
@@ -30,15 +33,19 @@ class Question
 
     #[ORM\ManyToOne(inversedBy: 'questions')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['api_game'])]
     private ?Category $category = null;
 
     #[ORM\ManyToMany(targetEntity: Level::class, inversedBy: 'questions')]
+    #[Groups(['api_game'])]
     private Collection $levels;
 
     #[ORM\ManyToMany(targetEntity: Game::class, inversedBy: 'questions')]
+    
     private Collection $games;
 
     #[ORM\OneToMany(mappedBy: 'question', targetEntity: QuestionAnswer::class)]
+    #[Groups(['api_game'])]
     private Collection $questionAnswers;
 
     public function __construct()

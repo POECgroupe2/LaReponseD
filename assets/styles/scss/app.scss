@@ -6,10 +6,12 @@
  "base/reset",
  "base/typography";
 
+
  // Components imports
 @import
   "components/animations",
   "components/buttons";
+
 
 // Utils imports
 @import
@@ -18,6 +20,8 @@
  "utils/placeholders",
  "utils/variables";
 
+
  // Global layout import
 @import
   "layout/global_layout";
+

@@ -1,11 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New QuestionAnswer{% endblock %}
+{% block title %}Ajouter QuestionAnswer
+{% endblock %}
 
 {% block body %}
-    <h1>Create new QuestionAnswer</h1>
-
-    {{ include('back/question_answer/_form.html.twig') }}
-
-    <a href="{{ path('app_back_question_answer_index') }}">back to list</a>
+	{% include 'back/partial/back_nav_bar.html.twig' %}
+	<div class="container pt-5">
+		<div class="row mb-2">
+			<h1 class="text-center my-5">Ajouter QuestionAnswer</h1>
+			<div class="col-8 mx-auto">
+				<a class="btn btn_return" href="{{ path('app_back_question_answer_index') }}">Retour à la liste</a>
+				<div>
+					{{ include('back/question_answer/_form.html.twig') }}
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}

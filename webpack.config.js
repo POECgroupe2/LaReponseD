@@ -32,6 +32,15 @@ Encore
     // but, you probably want this, unless you're building a single-page app
     .enableSingleRuntimeChunk()
 
+    // IMPORT IMG => public/build/images
+
+    // .copyFiles({
+    //     from: './assets/img',
+    //     to: 'img/[path][name].[ext]',
+    //     pattern: /\.(png|jpg|webp)$/
+    //   })
+
+      
     /*
      * FEATURE CONFIG
      *
@@ -70,7 +79,7 @@ Encore
     //.enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
+    // .autoProvidejQuery()
 ;
 
 module.exports = Encore.getWebpackConfig();

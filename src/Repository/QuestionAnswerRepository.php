@@ -38,6 +38,7 @@ class QuestionAnswerRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    
 
 //    /**
 //     * @return QuestionAnswer[] Returns an array of QuestionAnswer objects
