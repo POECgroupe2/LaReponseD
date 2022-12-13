@@ -16,11 +16,11 @@ class Answer
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['front'])]
+    #[Groups(['api_game'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['front'])]
+    #[Groups(['api_game'])]
     private ?string $content = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]

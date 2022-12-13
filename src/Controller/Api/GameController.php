@@ -14,6 +14,6 @@ class GameController extends AbstractController
     #[Route('/api/game', name: 'api_game')]
     public function browse(QuestionRepository $questionRepository): JsonResponse
     {
-        return $this->json($questionRepository->getRandomQuestions(), 200, [], ['groups' => 'front']);
+        return $this->json($questionRepository->getRandomQuestions(), 200, [], ['groups' => 'api_game']);
     }
 }

@@ -16,11 +16,11 @@ class Question
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['front'])]
+    #[Groups(['api_game'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Groups(['front'])]
+    #[Groups(['api_game'])]
     private ?string $content = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
@@ -33,11 +33,11 @@ class Question
 
     #[ORM\ManyToOne(inversedBy: 'questions')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(['front'])]
+    #[Groups(['api_game'])]
     private ?Category $category = null;
 
     #[ORM\ManyToMany(targetEntity: Level::class, inversedBy: 'questions')]
-    #[Groups(['front'])]
+    #[Groups(['api_game'])]
     private Collection $levels;
 
     #[ORM\ManyToMany(targetEntity: Game::class, inversedBy: 'questions')]
