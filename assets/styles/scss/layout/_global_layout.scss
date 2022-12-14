@@ -17,13 +17,32 @@ html {
     // scroll-behavior: smooth;
     // -webkit-overflow-scrolling: touch;
 
-    body {
+    body.body_front{
 
         color: $color-black;
         background-color: rgb(255, 255, 255);
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         padding: 0;
         margin: 0
+    
+        
     }
+    body.pink_back {
+    background-color: #fb9aff !important;
+    }
+
+.response_good_true {
+            background-color: rgb(20, 212, 52);
+            border: 2px solid black;
+            border-radius: 5px;
+            color: white;
+        }
+.response_good_false {
+            background-color: red;
+            border: 2px solid black;
+            border-radius: 5px;
+            color: white;
+        }
+
 
 }

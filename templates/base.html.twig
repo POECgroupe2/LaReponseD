@@ -15,7 +15,7 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body class="{{ app.request.get('_route') starts with 'app_back_' ? 'pink_back' : 'body_front' }}">
         {% block body %}{% endblock %}
     </body>
 </html>

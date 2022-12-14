@@ -11,7 +11,8 @@
 				<h1 class="text-center my-5">Réponse</h1>
 				<p class="my-3">
 					{% for questions in answer.questionAnswers %}
-						{{ questions.question.content }}
+						{{ questions.question.content }} <br> 
+							{{ questions.isGood ? 'Réponse Vrai' : 'Réponse Fausse'}} <br>
 					{% endfor %}
 				</p>
 				<a class="btn btn_return mb-5" href="{{ path('app_back_answer_index') }}">Retour à  la liste</a>
@@ -25,6 +26,7 @@
 							<th>Content</th>
 							<td>{{ answer.content }}</td>
 						</tr>
+						
 						<tr>
 							<th>CreatedAt</th>
 							<td>{{ answer.createdAt ? answer.createdAt|date('Y-m-d') : '' }}</td>

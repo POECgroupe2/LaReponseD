@@ -9,12 +9,18 @@
 		<div class="row mb-2">
 			<div class="col-8 mx-auto">
 				<h1 class="text-center my-5">Modifier la réponse à la ou les questions suivantes</h1>
-				<p>
-					{% for questions in answer.questionAnswers %}
-						{{ questions.question.content }}
-					{% endfor %}
-				</p>
 				<a class="btn btn_return mb-5" href="{{ path('app_back_answer_index') }}">Retour à la liste</a>
+				<div class="col  fw-bold">
+					{% for questions in answer.questionAnswers %}
+						<h2 class="response_quesion fw-bold">{{ questions.question.content }} <span class="response_good_{{ questions.isGood ? 'true' : 'false'}} mx-3">  {{ questions.isGood ? 'Réponse Vrai' : 'Réponse Fausse'}}</span></h2>
+						<div class="col mb-3 d-flex justify-content-center mb-5 my-3">
+							<a class="btn btn-sm btn_show text-center mx-3" href="{{ path('app_back_question_show', {'id': questions.question.id}) }}">Voir</a>
+							<a class="btn btn-sm btn_edit text-center mx-3" href="{{ path('app_back_question_edit', {'id': questions.question.id}) }}">Modifier</a>
+							<a class="btn btn-sm btn_delete text-center mx-3" href="{{ path('app_back_question_delete', {'id': questions.question.id}) }}">Supprimer</a>
+						</div
+					{% endfor %}
+				</div>
+				
 				<div class="col">
 					{{ include('back/answer/_form.html.twig', {'button_label': 'Update'}) }}
 					{{ include('back/answer/_delete_form.html.twig') }}
