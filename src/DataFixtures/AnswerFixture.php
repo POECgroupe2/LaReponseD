@@ -371,6 +371,106 @@ class AnswerFixture extends Fixture implements OrderedFixtureInterface
         $manager->persist($answer71);
         $this->addReference('answer71', $answer71);
 
+        $answer72 = new Answer();
+        $answer72->setContent('Jupiter');
+        $manager->persist($answer72);
+        $this->addReference('answer72', $answer72);
+
+        $answer73 = new Answer();
+        $answer73->setContent('Saturne');
+        $manager->persist($answer73);
+        $this->addReference('answer73', $answer73);
+
+        $answer74 = new Answer();
+        $answer74->setContent('Uranus');
+        $manager->persist($answer74);
+        $this->addReference('answer74', $answer74);
+
+        $answer75 = new Answer();
+        $answer75->setContent('Neptune');
+        $manager->persist($answer75);
+        $this->addReference('answer75', $answer75);
+
+        $answer76 = new Answer();
+        $answer76->setContent('Deep Purple');
+        $manager->persist($answer76);
+        $this->addReference('answer76', $answer76);
+
+        $answer77 = new Answer();
+        $answer77->setContent('Guns N\' Roses');
+        $manager->persist($answer77);
+        $this->addReference('answer77', $answer77);
+
+        $answer78 = new Answer();
+        $answer78->setContent('Linkin Park');
+        $manager->persist($answer78);
+        $this->addReference('answer78', $answer78);
+
+        $answer79 = new Answer();
+        $answer79->setContent('Motörhead');
+        $manager->persist($answer79);
+        $this->addReference('answer79', $answer79);
+
+        $answer80 = new Answer();
+        $answer80->setContent('Charles de Gaulle');
+        $manager->persist($answer80);
+        $this->addReference('answer80', $answer80);
+
+        $answer81 = new Answer();
+        $answer81->setContent('Georges Pompidou');
+        $manager->persist($answer81);
+        $this->addReference('answer81', $answer81);
+
+        $answer82 = new Answer();
+        $answer82->setContent('Valéry Giscard d\'Estaing');
+        $manager->persist($answer82);
+        $this->addReference('answer82', $answer82);
+
+        $answer83 = new Answer();
+        $answer83->setContent('Alain Poher');
+        $manager->persist($answer83);
+        $this->addReference('answer83', $answer83);
+
+        $answer84 = new Answer();
+        $answer84->setContent('La Guardia');
+        $manager->persist($answer84);
+        $this->addReference('answer84', $answer84);
+
+        $answer85 = new Answer();
+        $answer85->setContent('La Niña');
+        $manager->persist($answer85);
+        $this->addReference('answer85', $answer85);
+
+        $answer86 = new Answer();
+        $answer86->setContent('La Pinta');
+        $manager->persist($answer86);
+        $this->addReference('answer86', $answer86);
+
+        $answer87 = new Answer();
+        $answer87->setContent('La Santa Maria');
+        $manager->persist($answer87);
+        $this->addReference('answer87', $answer87);
+
+        $answer88 = new Answer();
+        $answer88->setContent('3 novembre 1993');
+        $manager->persist($answer88);
+        $this->addReference('answer88', $answer88);
+
+        $answer89 = new Answer();
+        $answer89->setContent('15 février 1994');
+        $manager->persist($answer89);
+        $this->addReference('answer89', $answer89);
+
+        $answer90 = new Answer();
+        $answer90->setContent('1er mai 1994');
+        $manager->persist($answer90);
+        $this->addReference('answer90', $answer90);
+
+        $answer91 = new Answer();
+        $answer91->setContent('4 mai 1995');
+        $manager->persist($answer91);
+        $this->addReference('answer91', $answer91);
+
 
 
 

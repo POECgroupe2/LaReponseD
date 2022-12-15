@@ -516,6 +516,129 @@ class QuestionAnswerFixture extends Fixture implements OrderedFixtureInterface
         $manager->persist($questionAnswer);
 
         // question 21
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question21'));
+        $questionAnswer->setAnswer($this->getReference('answer72'));
+        $questionAnswer->setIsGood(true);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question21'));
+        $questionAnswer->setAnswer($this->getReference('answer73'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question21'));
+        $questionAnswer->setAnswer($this->getReference('answer74'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question21'));
+        $questionAnswer->setAnswer($this->getReference('answer75'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        // question 22
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question22'));
+        $questionAnswer->setAnswer($this->getReference('answer76'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question22'));
+        $questionAnswer->setAnswer($this->getReference('answer77'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question22'));
+        $questionAnswer->setAnswer($this->getReference('answer78'));
+        $questionAnswer->setIsGood(true);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question22'));
+        $questionAnswer->setAnswer($this->getReference('answer79'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        // question 23
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question23'));
+        $questionAnswer->setAnswer($this->getReference('answer80'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question23'));
+        $questionAnswer->setAnswer($this->getReference('answer81'));
+        $questionAnswer->setIsGood(true);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question23'));
+        $questionAnswer->setAnswer($this->getReference('answer82'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question23'));
+        $questionAnswer->setAnswer($this->getReference('answer83'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        // question 24
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question24'));
+        $questionAnswer->setAnswer($this->getReference('answer84'));
+        $questionAnswer->setIsGood(true);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question24'));
+        $questionAnswer->setAnswer($this->getReference('answer85'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question24'));
+        $questionAnswer->setAnswer($this->getReference('answer86'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question24'));
+        $questionAnswer->setAnswer($this->getReference('answer87'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        // question 25
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question25'));
+        $questionAnswer->setAnswer($this->getReference('answer88'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question25'));
+        $questionAnswer->setAnswer($this->getReference('answer89'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question25'));
+        $questionAnswer->setAnswer($this->getReference('answer90'));
+        $questionAnswer->setIsGood(true);
+        $manager->persist($questionAnswer);
+
+        $questionAnswer = new QuestionAnswer();
+        $questionAnswer->setQuestion($this->getReference('question25'));
+        $questionAnswer->setAnswer($this->getReference('answer91'));
+        $questionAnswer->setIsGood(false);
+        $manager->persist($questionAnswer);
 
 
 

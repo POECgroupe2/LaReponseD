@@ -51,20 +51,27 @@
                 <div id="level_div">
                     <label for="level">Niveau</label>
                     <select id="level">
-                        <option>Facile</option>
-                        <option>Moyen</option>
-                        <option>Difficile</option>
+                        <option>Débutant</option>
+                        <option>Intermédiaire</option>
+                        <option>Expert</option>
                     </select>
                 </div>
                 <div id="categ_div">
                     <label for="categ">Catégorie</label>
                     <select id="categ">
+                        <option>Animaux</option>
+                        <option>Art</option>
                         <option>Cinéma</option>
+                        <option>Cuisine</option>
                         <option>Culture générale</option>
                         <option>Géographie</option>
                         <option>Histoire</option>
+                        <option>Informatique</option>
+                        <option>Jeux Vidéo</option>
+                        <option>Littérature</option>
                         <option>Musique</option>
-                        <option>Sports</option>
+                        <option>Séries TV</option>
+                        <option>Sport</option>
                     </select>
                 </div>
             </div>
@@ -109,6 +116,26 @@
         <!-- {# endif #} -->
 
         <section>
+            <!-- L'article commenté ci-dessous sera celui utilisé pour afficher chaque question
+            de la base de données. Certains points peuvent être encore à modifier. -->
+            {#
+            <article id="question{{ question.number }}">
+                <div class="question">
+                    {{ question.text }}
+                </div>
+                <div class="reponses">
+                    <div class="repLigne">
+                        <span class="reponse" id="rep{{ question.number }}-{{ answer.number }}">{{ answer.text }}</span>
+                        <span class="reponse" id="rep{{ question.number }}-{{ answer.number }}">{{ answer.text }}</span>
+                    </div>
+                    <div class="repLigne">
+                        <span class="reponse" id="rep{{ question.number }}-{{ answer.number }}">{{ answer.text }}</span>
+                        <span class="reponse" id="rep{{ question.number }}-{{ answer.number }}">{{ answer.text }}</span>
+                    </div>
+                </div>
+            </article>
+            #}
+
             <article id="question1">
                 <div class="question">
                     Quelle est la plus grande planète de notre système solaire&nbsp;?
