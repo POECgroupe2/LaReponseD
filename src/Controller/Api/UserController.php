@@ -43,19 +43,10 @@ class UserController extends ApiController
             );
         }
         return $this->json( $user, 200, [] ,  ['groups' => 'api_users_read'] );
-            
-           
-      
-    }
-            
-            
-            
-            
-                
-               
-           
-      
+    }        
+
     
+            
     #[Route('', name: 'add', methods: ['POST'])]
     public function add(
         Request $request,
@@ -63,14 +54,9 @@ class UserController extends ApiController
         SerializerInterface $serializerInterface,
         ValidatorInterface $validator,
         UserPasswordHasherInterface $hasher): JsonResponse
-    {
-        
-        
-
-        
-        $jsonContent = $request->getContent();
-        
-        
+    {        
+        $jsonContent = $request->getContent();    
+            
         try 
         {
             /** @var User $newuser */
@@ -81,8 +67,7 @@ class UserController extends ApiController
             
             return $this->json("Le JSON est mal formé", Response::HTTP_BAD_REQUEST);
         }
-       // dd($newUser);
-
+       // dd($newUser); 
         
         $errors = $validator->validate($newUser);
         
@@ -102,24 +87,6 @@ class UserController extends ApiController
 
         $repo->save($newUser, true);
 
-
-        
-        return $this->json(
-            
-            $newUser,
-            Response::HTTP_CREATED,
-            [
-                
-                'Location' => $this->generateUrl('api_users_read', ['id' => $newUser->getId()])
-            ],
-            [
-                
-                "groups" =>"api_users_read"
-               
-            ]
-                
-                    
-        );
-    }
-
-}
+        return $this->json($newUser, Response::HTTP_CREATED, ['Location' => $this->generateUrl('api_users_read', ['id' => $newUser->getId()])], [ "groups" =>"api_users_read"]);
+    }        
+}             
