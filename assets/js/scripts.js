@@ -58,7 +58,6 @@ for (let i=1; i<=5; i++) { //Numéro de question
 async function endQuestion(nb) {
     /* Arrêter le compteur */
     clearInterval(countInterval);
-    //console.log(countInterval);
     element.textContent = "20 secondes";
 
     let quest = document.querySelector("#question" + nb);
@@ -85,7 +84,7 @@ async function endQuestion(nb) {
 /* Fonction d'envoi des réponses */
 async function sendUserAnswers() {
     let data = {
-        "user_answers": answers,
+        "user_answers": answers
     };
 
     let response = await fetch("http://127.0.0.1:8000", {
