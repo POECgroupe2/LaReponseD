@@ -8,4 +8,8 @@ use PHPUnit\Framework\TestCase;
 class RegistrationControllerTest extends TestCase
 {
 
+    public function testVerifyUserEmail()
+    {
+
+    }
 }
