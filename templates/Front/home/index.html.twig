@@ -18,6 +18,13 @@
                 <a href="{{ path('app_login') }}" class="navLink">Connexion</a>
                 <a href="{{ path('app_register') }}" class="navLink">Inscription</a>
             {% endif %}
+            {% if app.user and app.user.isVerified == false %}
+                <div class="alert" alert-warning alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="alert-message"><strong>Votre compte n'est pas activé</strong>, renvoyer le lien d'activation
+                </div>
+                </div>
+            {% endif %}
         </nav>
         <!-- {# else #} -->
         <!--
