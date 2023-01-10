@@ -51,4 +51,15 @@ php bin/console doctrine:fixture:load
 ```
 - Maildev sans docker : installer maildev avec: npm install -g maildev
 - Run maildev dans un powershell: maildev --smtp 25 --web-ip 192.168.1.48 --ip 192.168.1.48 
-- 
+- mettre sans commentaires dans à la fin .env : MAILER_DSN=smtp://adresseipdevotremachine:1025 (ex : MAILER_DSN=smtp://192.169.0.12:1025)
+(sur windows on trouve l'ip de la machine avec ipconfig) ou ifconfig (linux ou essayer sur powershell)
+Un exemple de mon fichier .env:
+
+###> symfony/mailer ###
+##MAILER_DSN=smtp://quizz_usr_maildev:25
+###(192.168.1.48 c'est ma machine)
+MAILER_DSN=smtp://192.168.1.48:1025
+###< symfony/mailer ###
+
+acces à maildev ds votre navigateur à l'adresse:  http://adresseipdevotremachine:1080 ( ex: http://192.169.0.12:1080 )
+
