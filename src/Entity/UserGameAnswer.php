@@ -13,11 +13,11 @@ class UserGameAnswer
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['api_users_browse', 'api_users_read'])]
+    #[Groups(['api_users_browse', 'api_users_read', 'api_user_game_answer_browse', 'api_user_game_answer_read'])]
     private ?int $id = null;
 
     #[ORM\Column]
-    #[Groups(['api_users_browse', 'api_users_read'])]
+    #[Groups(['api_users_browse', 'api_users_read', 'api_user_game_answer_browse', 'api_user_game_answer_read'])]
     private ?bool $good = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
@@ -26,15 +26,17 @@ class UserGameAnswer
 
     #[ORM\ManyToOne(inversedBy: 'userGameAnswers')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(['api_users_browse', 'api_users_read'])]
+    #[Groups(['api_users_browse', 'api_users_read', 'api_user_game_answer_browse', 'api_user_game_answer_read'])]
     private ?Answer $answer = null;
 
     #[ORM\ManyToOne(inversedBy: 'userGameAnswers')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['api_user_game_answer_browse', 'api_user_game_answer_read'])]
     private ?Game $game = null;
 
     #[ORM\ManyToOne(inversedBy: 'userGameAnswers')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['api_user_game_answer_browse', 'api_user_game_answer_read'])]
     private ?User $user = null;
 
     public function getId(): ?int

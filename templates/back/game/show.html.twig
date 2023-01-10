@@ -10,6 +10,14 @@
 			<div class="col-8 mx-auto">
 				<h1 class="text-center my-5">{{ game.name }}</h1>
 				<a class="btn btn_return mb-5" href="{{ path('app_back_game_index') }}">Retour à  la liste</a>
+				<div class="col  fw-bold">
+					{% for questions in game.questions %}
+					
+					{{ dump(questions) | length }}
+						<h2 class="response_question fw-bold">{{ questions.question.content }} </h2>
+						
+					{% endfor %} 
+				</div>
 				<table class="table">
 					<tbody>
 						<tr>
