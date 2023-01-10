@@ -62,4 +62,12 @@ MAILER_DSN=smtp://192.168.1.48:1025
 ###< symfony/mailer ###
 
 acces à maildev ds votre navigateur à l'adresse:  http://adresseipdevotremachine:1080 ( ex: http://192.169.0.12:1080 )
+ vérifier que dans config/packages/messenger.yaml la partie:
+ 
+         routing:
+            #Symfony\Component\Mailer\Messenger\SendEmailMessage: async (cette ligne doit être commentée comme ici)
+            Symfony\Component\Notifier\Message\ChatMessage: async
+            Symfony\Component\Notifier\Message\SmsMessage: async
 
+            # Route your messages to the transports
+            # 'App\Message\YourMessage': async
