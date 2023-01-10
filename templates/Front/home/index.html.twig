@@ -8,9 +8,23 @@
 
         <!-- {# if app.user #} -->
             <nav class="front_nav">
-                <a href="#" class="navLink">Classement</a>
-                <a href="#" class="navLink">Désinscription</a>
-                <a href="#" class="navLink">Déconnexion</a>
+                {% if app.user %}
+                    <a href="#" class="navLink">Classement</a>
+                    <a href="#" class="navLink">Désinscription</a>
+                    <a href="{{ path('app_logout') }}" class="navLink">Déconnexion</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}" class="navLink">Connexion</a>
+                    <a href="{{ path('app_register') }}" class="navLink">Inscription</a>
+                {% endif %}
+                {% if app.user and app.user.isVerified == false %}
+                    <div class="alert" alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <div class="alert-message"><strong>Compte non activé</strong>, vérifier le mail de confirmation reçu à {{ app.user.email }} et cliquez sur le lien d'activation<br>
+                        Email de confirmation non reçu? -><a href="{{ path('resend_confirmation_email', {'id':app.user.id, 'email':app.user.email}) }}" class="navLink">Revoyer l'email de confirmation à </a>{{ app.user.email }}
+
+                    </div>
+                    </div>
+                {% endif %}
             </nav>
         <!-- {# else #} -->
             <!--
@@ -27,8 +41,13 @@
         <section id="titles">
             <h1>La réponse D !</h1>
             <!-- {# if app.user #} -->
-                <h2>Bienvenue <span style="color: red">&lt;User&gt;</span>, nous sommes heureux de vous
-                accueillir&nbsp;!</h2>
+            {% if app.user %}
+                <h2>Bienvenue <span style="color: red">{{ app.user.pseudo }}</span>, nous sommes heureux de vous
+                    accueillir&nbsp;!</h2>
+            {% else %}
+                <h2>Bienvenue <span style="color: red">visiteuse, visiteur</span>, nous sommes heureux de vous
+                    accueillir&nbsp;!</h2>
+            {% endif %}
                 <h2>Vous avez actuellement <span style="color: red">&lt;Score&gt;</span>&nbsp;points
                 <br>et vous êtes en <span style="color: red">&lt;Place&gt;</span><sup>ème</sup>&nbsp;position
                 dans le classement général...</h2>
