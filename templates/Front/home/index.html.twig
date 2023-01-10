@@ -126,7 +126,9 @@
                         </div>
                         <div class="reponses">
                             {% for answers in question.questionAnswers %}
-                                <span class="reponse" id="rep{{ numQue }}-{{ loop.index }}">{{ answers.answer.content }}</span>
+                                <span class="reponse" id="rep{{ numQue }}-{{ loop.index }}"
+                                data-answer-id="{{ answers.answer.id }}"
+                                data-answer-is-good="{{ answers.isIsGood }}">{{ answers.answer.content }}</span>
                             {% endfor %}
                         </div>
                     </article>

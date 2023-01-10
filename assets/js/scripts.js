@@ -1,7 +1,7 @@
-/* Afficher les boutons des questions */
+/* Afficher les boutons des questions. */
 const buttons = document.querySelector("#buttons");
 window.addEventListener("load", async function(e) {
-    for (let i=1; i<=5; i++) {
+    for (let i=1; i<=15; i++) {
         let bouton = document.createElement("button");
         bouton.className = "eachButton";
         bouton.id = "button" + i;
@@ -13,16 +13,20 @@ window.addEventListener("load", async function(e) {
     }
 })
 
-/* Fonction appelée au clic d'un bouton de question */
+/* Fonction appelée au clic d'un bouton de question. */
 async function getBlock(nb) {
-    /* Faire apparaître la question et ses réponses */
-    document.querySelector("#question" + nb).style.display = "block";
+    /* Si le bloc n'est pas visible (donc si le bouton n'a pas déjà été cliqué). */
+    if (document.querySelector("#question" + nb).style.display !== "block") {
+        /* Faire apparaître la question et ses réponses. */
+        document.querySelector("#question" + nb).style.display = "block";
 
-    /* Actionner le compteur */ /* TROUVER COMMENT EMPECHER LE REDEMARRAGE... */
-    await startCountDown(seconds, element, nb)
+        /* Actionner le compteur. */
+        await startCountDown(seconds, element, nb)
+    }
+    /* Sinon, on ne fait rien et le compteur n'est pas relancé. */
 }
 
-/* Mettre en place le compteur */
+/* Mettre en place le compteur. */
 let seconds = 20;
 let element = document.querySelector('#count-down-timer');
 let countInterval;
@@ -34,57 +38,64 @@ async function startCountDown(seconds, element, nb) {
         element.textContent = sec + " secondes";
         seconds--;
         if (seconds < 0) {
-            answers.push("none");
+            answerAndStatute = ["0", ""];
+            console.log(answerAndStatute);
             await endQuestion(nb);
         }
     }, 1000)
 }
 
-/* Récupérer la réponse choisie */
-let answers = []; // Tableau des réponses du joueur.
+/* Récupérer la réponse choisie. */
+let answerAndStatute = []; // Tableau de l'id et du statut de la réponse du joueur.
 async function getAnswer(eachAnswer, i) {
-    answers.push(eachAnswer.innerText);
+    answerAndStatute = [];
+    var answerId = eachAnswer.dataset.answerId;
+    var answerIsGood = eachAnswer.dataset.answerIsGood;
+    answerAndStatute.push(answerId, answerIsGood);
+    console.log(answerAndStatute);
     await endQuestion(i)
 }
 
-for (let i=1; i<=5; i++) { //Numéro de question
-    for (let j=1; j<=4; j++) { //Numéro de réponse
+for (let i=1; i<=15; i++) { // Numéro de question.
+    for (let j=1; j<=4; j++) { // Numéro de réponse.
         let eachAnswer = document.querySelector("#rep" + i + "-" + j);
         eachAnswer.addEventListener("click", event => getAnswer(event.target, i))
     }
 }
 
-/* Fonction appelée par le compteur et getAnswer() */
+/* Fonction appelée par le compteur et getAnswer(). */
 async function endQuestion(nb) {
-    /* Arrêter le compteur */
+    /* Arrêter le compteur. */
     clearInterval(countInterval);
     element.textContent = "20 secondes";
 
     let quest = document.querySelector("#question" + nb);
-    /* Faire disparaître la question et ses réponses */
+    /* Faire disparaître la question et ses réponses. */
     quest.style.display = "none";
 
-    /* Faire disparaître le bouton de la question terminée et afficher le bouton suivant */
-    for (let i=1; i<=5; i++) {
+    /* Envoyer la réponse du joueur pour le calcul final du score. */
+    await sendUserAnswers()
+
+    /* Faire disparaître le bouton de la question terminée et afficher le bouton suivant. */
+    for (let i=1; i<=15; i++) {
         if (i === nb) {
             document.querySelector("#button" + i).style.display = "none";
-            if ((i+1) <= 5) {
+            if ((i+1) <= 15) {
                 document.querySelector("#button" + (i+1)).style.display = "block"
-            } else { /* Si c'est le dernier bouton */
+            }
+            else { /* Si c'est le dernier bouton. */
                 const gameOver = document.querySelector("#result");
-                /* Faire apparaître le bloc final */
-                gameOver.style.display = "inline-block";
-                console.log(answers);
+                /* Faire apparaître le bloc final. */
+                gameOver.style.display = "inline-block"
             }
         }
     }
-    if (answers.length == 5) await sendUserAnswers()
 }
 
-/* Fonction d'envoi des réponses */
+/* Fonction d'envoi des réponses. */
 async function sendUserAnswers() {
     let data = {
-        "user_answers": answers
+        "user_answer_and_statute": answerAndStatute
     };
 
     let response = await fetch("http://127.0.0.1:8000", {

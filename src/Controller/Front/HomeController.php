@@ -19,8 +19,6 @@ class HomeController extends AbstractController
         return $this->render('front/home/index.html.twig', [
             'controller_name' => 'HomeController',
             'questions' => $questionRepository->getRandomQuestions(),
-            'answers' => $answerRepository->findAll(),
-            'question_answers' => $questionAnswerRepository->findAll(),
         ]);
     }
 }
