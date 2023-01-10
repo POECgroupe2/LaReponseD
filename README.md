@@ -49,3 +49,6 @@ php bin/console doctrine:migration:migrate
 ```php
 php bin/console doctrine:fixture:load    
 ```
+- Maildev sans docker : installer maildev avec: npm install -g maildev
+- Run maildev dans un powershell: maildev --smtp 25 --web-ip 192.168.1.48 --ip 192.168.1.48 
+- 
