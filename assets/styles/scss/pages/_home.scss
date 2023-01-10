@@ -151,29 +151,28 @@
         }
 
         >.reponses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             width: 90%;
-            margin: 10px 5%;
+            max-width: 1000px;
+            margin: 10px auto;
 
-            >.repLigne {
+            >.reponse {
+                cursor: pointer;
                 display: flex;
+                align-items: center;
                 justify-content: center;
-
-                >.reponse {
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 44%;
-                    max-width: 400px;
-                    color: $color-black;
-                    font-size: 1em;
-                    text-decoration: none;
-                    padding: 10px 20px;
-                    margin: 10px 5px;
-                    &:hover {
-                        background: $color-black;
-                        color: $color-white
-                    }
+                width: 44%;
+                max-width: 400px;
+                color: $color-black;
+                font-size: 1em;
+                text-decoration: none;
+                padding: 10px 20px;
+                margin: 10px 5px;
+                &:hover {
+                    background: $color-black;
+                    color: $color-white
                 }
             }
         }

@@ -17,7 +17,7 @@ class CategoryFixture extends Fixture implements OrderedFixtureInterface
         $this->addReference('cuisine', $cuisine);
 
         $cinema = new Category();
-        $cinema->setName('Cinema');
+        $cinema->setName('Cinéma');
         $manager->persist($cinema);
         $this->addReference('cinema', $cinema);        
 
@@ -37,7 +37,7 @@ class CategoryFixture extends Fixture implements OrderedFixtureInterface
         $this->addReference('histoire', $histoire);
 
         $geographie = new Category();
-        $geographie->setName('Geographie');
+        $geographie->setName('Géographie');
         $manager->persist($geographie);
         $this->addReference('geographie', $geographie);
 
@@ -52,17 +52,17 @@ class CategoryFixture extends Fixture implements OrderedFixtureInterface
         $this->addReference('informatique', $informatique);
 
         $jeuxVideo = new Category();
-        $jeuxVideo->setName('Jeux Video');
+        $jeuxVideo->setName('Jeux Vidéo');
         $manager->persist($jeuxVideo);
         $this->addReference('jeuxVideo', $jeuxVideo);
 
         $serieTv = new Category();
-        $serieTv->setName('Serie TV');
+        $serieTv->setName('Séries TV');
         $manager->persist($serieTv);
         $this->addReference('serieTv', $serieTv);
 
         $litterature = new Category();
-        $litterature->setName('Litterature');
+        $litterature->setName('Littérature');
         $manager->persist($litterature);
         $this->addReference('litterature', $litterature);
 
@@ -70,6 +70,11 @@ class CategoryFixture extends Fixture implements OrderedFixtureInterface
         $art->setName('Art');
         $manager->persist($art);
         $this->addReference('art', $art);
+
+        $cultureGen = new Category();
+        $cultureGen->setName('Culture générale');
+        $manager->persist($cultureGen);
+        $this->addReference('cultureGen', $cultureGen);
 
         $manager->flush();
     }
