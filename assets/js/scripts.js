@@ -47,12 +47,17 @@ async function startCountDown(seconds, element, nb) {
 
 /* Récupérer la réponse choisie. */
 let answerAndStatute = []; // Tableau de l'id et du statut de la réponse du joueur.
+let score = 0;
 async function getAnswer(eachAnswer, i) {
     answerAndStatute = [];
     var answerId = eachAnswer.dataset.answerId;
     var answerIsGood = eachAnswer.dataset.answerIsGood;
     answerAndStatute.push(answerId, answerIsGood);
     console.log(answerAndStatute);
+    if (answerIsGood == "1") {
+        score = score + 1;
+    }
+    console.log(score);
     await endQuestion(i)
 }
 
