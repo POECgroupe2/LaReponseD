@@ -8,8 +8,20 @@
 	<div class="container pt-5">
 		<div class="row mb-2">
 			<div class="col-8 mx-auto">
-				<h1 class="text-center my-5">Question</h1>
-				<a class="btn btn_return mb-5" href="{{ path('app_back_question_index') }}">Retour à  la liste</a>
+		
+				<h1 class="text-center my-5 fw-bold fs-2">{{ question.content }}</h1>
+			<a class="btn btn_return mb-5" href="{{ path('app_back_question_index') }}">Retour à  la liste</a>
+				<div class="col  fw-bold">
+					{% for answers in question.questionAnswers %}
+						<h2 class="response_question fw-bold">{{ answers.answer.content }} <span class="response_good_{{ answers.isGood ? 'true' : 'false'}} mx-3">  {{ answers.isGood ? 'Réponse Vrai' : 'Réponse Fausse'}}</span></h2>
+						<div class="col mb-3 mb-5 my-3">
+							<a class="btn btn-sm btn_show text-center mx-3" href="{{ path('app_back_answer_show', {'id': answers.answer.id}) }}">Voir</a>
+							<a class="btn btn-sm btn_edit text-center mx-3" href="{{ path('app_back_answer_edit', {'id': answers.answer.id}) }}">Modifier</a>
+							<a class="btn btn-sm btn_delete text-center mx-3" href="{{ path('app_back_answer_delete', {'id': answers.answer.id}) }}">Supprimer</a>
+						</div>
+					{% endfor %}
+				</div>
+				
 				<table class="table">
 					<tbody>
 						<tr>

@@ -2,14 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+use App\Repository\UserRepository;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -17,34 +18,43 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['api_users_browse', 'api_users_read', 'api_user_game_answer_browse', 'api_user_game_answer_read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    #[Groups(['api_users_browse', 'api_users_read'])]
     private ?string $email = null;
 
     #[ORM\Column]
+    #[Groups(['api_users_browse', 'api_users_read'])]
     private array $roles = [];
 
     /**
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Groups(['api_users_browse', 'api_users_read'])]
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['api_users_browse', 'api_users_read', 'api_user_game_answer_browse', 'api_user_game_answer_read'])]
     private ?string $pseudo = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['api_users_browse', 'api_users_read'])]
     private ?int $totalScore = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     #[Gedmo\Timestampable(on: 'create')]
+    #[Groups(['api_users_browse', 'api_users_read'])]
     private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\ManyToMany(targetEntity: Game::class, inversedBy: 'users')]
+    #[Groups(['api_users_browse', 'api_users_read'])]
     private Collection $games;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserGameAnswer::class)]
+    #[Groups(['api_users_browse', 'api_users_read'])]
     private Collection $userGameAnswers;
 
     public function __construct()

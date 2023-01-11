@@ -12,16 +12,16 @@ class QuestionAnswer
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['api_game'])]
+    #[Groups(['api_games_browse'])]
     private ?int $id = null;
 
     #[ORM\Column]
-    #[Groups(['api_game'])]
+    #[Groups(['api_games_browse'])]
     private ?bool $isGood = null;
 
     #[ORM\ManyToOne(inversedBy: 'questionAnswers')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(['api_game'])]
+    #[Groups(['api_games_browse'])]
     private ?Answer $answer = null;
 
     #[ORM\ManyToOne(inversedBy: 'questionAnswers')]

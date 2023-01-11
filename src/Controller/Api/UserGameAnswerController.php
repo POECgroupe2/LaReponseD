@@ -3,50 +3,64 @@
 namespace App\Controller\Api;
 
 use Exception;
-use App\Entity\Game;
-use App\Controller\Api\ApiController;
-use App\Repository\GameRepository;
-use App\Repository\QuestionRepository;
-use DoctrineExtensions\Query\Mysql\Now;
+use App\Entity\UserGameAnswer;
+use App\Repository\UserGameAnswerRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/api/games', name: 'api_games_')]
-class GameController extends ApiController
+#[Route('/api/user/game/answer', name: 'api_user_game_answer_')]
+class UserGameAnswerController extends AbstractController
 {
     #[Route('', name: 'browse', methods: ['GET'])]
-    public function browse(QuestionRepository $questionRepository): JsonResponse
+    public function browse(UserGameAnswerRepository $userGameAnswerRepository): JsonResponse
     {
-        return $this->json($questionRepository->getRandomQuestions(), 200, [], ['groups' => 'api_games_browse']);
-    }
+        $allUserGameAnswer = $userGameAnswerRepository->findAll();
+
+        return $this->json($allUserGameAnswer, Response::HTTP_OK, [] ,  ['groups' => 'api_user_game_answer_browse'] );
+    
+     }        
 
     #[Route('/{id}', name: 'read', methods: ['GET'], requirements: ['id' => '\d+'])]
-    public function read(Game $game, int $id = null): JsonResponse
+     public function read(UserGameAnswer $userGameAnswer = null)
     {
-        if ($game === null) {
+        
+        if ($userGameAnswer === null) {
             
             return $this->json(
                 [
-                    "erreur" => "aucun jeu n'a pas été trouvé",
+                    "erreur" => "Aucune donnée trouvée",
                     "code_error" => 404
                 ],
                 Response::HTTP_NOT_FOUND, // 404
                 
             );
         }
-        return $this->json( $game, 200, [] ,  ['groups' => 'api_games_read'] );
-    }        
-    
+        return $this->json(
+            $userGameAnswer, 
+             
+            Response::HTTP_OK,
+            
+            [],
+            
+            [
+                
+                "groups" =>
+                [
+                    "api_user_game_answer_read"
+                ]
+            ]
+        );
+      
+    }
     #[Route('', name: 'add', methods: ['POST'])]
     public function add(
         Request $request,
-        GameRepository $repo,
+        UserGameAnswerRepository $repo,
         SerializerInterface $serializerInterface,
         ValidatorInterface $validator
         ): JsonResponse
@@ -60,8 +74,8 @@ class GameController extends ApiController
         
         try 
         {
-            /** @var Game $game */
-            $game = $serializerInterface->deserialize($jsonContent, Game::class, 'json');
+            /** @var UserGameAnswer $newUserGameAnswer */
+            $newUserGameAnswer = $serializerInterface->deserialize($jsonContent, UserGameAnswer::class, 'json');
         }
         catch(Exception $e) 
         {
@@ -72,7 +86,7 @@ class GameController extends ApiController
        
 
         
-        $errors = $validator->validate($game);
+        $errors = $validator->validate($newUserGameAnswer);
         
         if (count($errors)> 0)
         {
@@ -81,23 +95,22 @@ class GameController extends ApiController
             return $this->json($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        $game->setCreatedAt(new \DateTime('now'));
         
-        $repo->save($game, true);
+        $repo->save($newUserGameAnswer, true);
 
         
         
         return $this->json(
             
-            $game,
+            $newUserGameAnswer,
             Response::HTTP_CREATED,
             [
                 
-                'Location' => $this->generateUrl('api_game_read', ['id' => $game->getId()])
+                'Location' => $this->generateUrl('api_user_game_answer_read', ['id' => $newUserGameAnswer->getId()])
             ],
             [
                 
-                "groups" =>"api_game_read"
+                "groups" =>"api_user_game_answer_read"
                
             ]
                 
