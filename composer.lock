@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eee91d41d4a145ee3d8c566dabbf993d",
+    "content-hash": "0b4c0d16147852a69084b7bdc8017bdc",
     "packages": [
         {
             "name": "beberlei/doctrineextensions",
@@ -4559,16 +4559,16 @@
         },
         {
             "name": "symfony/mailer",
-            "version": "v6.1.7",
+            "version": "v6.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mailer.git",
-                "reference": "7e19813c0b43387c55665780c4caea505cc48391"
+                "reference": "dbffeda2da8050fe6cd5661876037702860df790"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mailer/zipball/7e19813c0b43387c55665780c4caea505cc48391",
-                "reference": "7e19813c0b43387c55665780c4caea505cc48391",
+                "url": "https://api.github.com/repos/symfony/mailer/zipball/dbffeda2da8050fe6cd5661876037702860df790",
+                "reference": "dbffeda2da8050fe6cd5661876037702860df790",
                 "shasum": ""
             },
             "require": {
@@ -4613,7 +4613,7 @@
             "description": "Helps sending emails",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/mailer/tree/v6.1.7"
+                "source": "https://github.com/symfony/mailer/tree/v6.1.9"
             },
             "funding": [
                 {
@@ -4629,20 +4629,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-28T16:23:08+00:00"
+            "time": "2022-12-14T16:05:20+00:00"
         },
         {
             "name": "symfony/messenger",
-            "version": "v6.1.6",
+            "version": "v6.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/messenger.git",
-                "reference": "3d7fbc507ad31e71a96e8e65342243e2dbe22fa1"
+                "reference": "03d6b29a82459591b63ac8468773ea5a48ef8ba1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/messenger/zipball/3d7fbc507ad31e71a96e8e65342243e2dbe22fa1",
-                "reference": "3d7fbc507ad31e71a96e8e65342243e2dbe22fa1",
+                "url": "https://api.github.com/repos/symfony/messenger/zipball/03d6b29a82459591b63ac8468773ea5a48ef8ba1",
+                "reference": "03d6b29a82459591b63ac8468773ea5a48ef8ba1",
                 "shasum": ""
             },
             "require": {
@@ -4699,7 +4699,7 @@
             "description": "Helps applications send and receive messages to/from other applications or via message queues",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/messenger/tree/v6.1.6"
+                "source": "https://github.com/symfony/messenger/tree/v6.1.9"
             },
             "funding": [
                 {
@@ -4715,7 +4715,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-10T09:34:31+00:00"
+            "time": "2022-12-14T16:05:20+00:00"
         },
         {
             "name": "symfony/mime",
