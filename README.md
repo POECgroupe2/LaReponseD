@@ -43,12 +43,6 @@ php bin/console doctrine:database:create
 ```php
 php bin/console doctrine:migration:migrate
 ```
-```php
-composer require symfony/security-bundle
-```
-```php
-composer require symfonycasts/verify-email-bundle
-```
 - Fixture:
   
 ```php
@@ -69,7 +63,7 @@ faire: composer update "symfony/*" --with-all-dependencies
 - Maildev sans docker : installer dans un powershell maildev avec: npm install -g maildev
 - Run maildev dans un powershell: maildev --smtp 25 --web-ip ipdevotremachine --ip ipdevotremachine  
 - (sur windows on trouve l'ip de la machine avec ipconfig) ou ifconfig (linux ou essayer sur powershell) 
-- exemple:  maildev --smtp 25 --web-ip 192.168.0.12 --ip 192.168.0.12
+- exemple:  maildev --smtp 1025 --web-ip 192.168.0.12 --ip 192.168.0.12
 (ne pas stopper ou quitter le powershell pour laisser tourner le service)
 
 - mettre sans commentaires dans .env vers la fin : MAILER_DSN=smtp://adresseipdevotremachine:1025 (ex : MAILER_DSN=smtp://192.169.0.12:1025)
