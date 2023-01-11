@@ -16,11 +16,11 @@ class Question
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['api_game'])]
+    #[Groups(['api_games_browse', 'api_games_read'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Groups(['api_game'])]
+    #[Groups(['api_games_browse', 'api_games_read'])]
     private ?string $content = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
@@ -33,19 +33,19 @@ class Question
 
     #[ORM\ManyToOne(inversedBy: 'questions')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(['api_game'])]
+    #[Groups(['api_games_browse'])]
     private ?Category $category = null;
 
     #[ORM\ManyToMany(targetEntity: Level::class, inversedBy: 'questions')]
-    #[Groups(['api_game'])]
+    #[Groups(['api_games_browse'])]
     private Collection $levels;
 
     #[ORM\ManyToMany(targetEntity: Game::class, inversedBy: 'questions')]
-    
+
     private Collection $games;
 
     #[ORM\OneToMany(mappedBy: 'question', targetEntity: QuestionAnswer::class)]
-    #[Groups(['api_game'])]
+    #[Groups(['api_games_browse'])]
     private Collection $questionAnswers;
 
     public function __construct()

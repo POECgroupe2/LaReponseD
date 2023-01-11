@@ -40,7 +40,7 @@ class QuestionRepository extends ServiceEntityRepository
         }
     }
 
-    
+
     public function getRandomQuestions(int $limit = 15): array
     {
         return $this->createQueryBuilder('q')
@@ -48,7 +48,7 @@ class QuestionRepository extends ServiceEntityRepository
             ->setMaxResults($limit)
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
 //    /**
 //     * @return Question[] Returns an array of Question objects

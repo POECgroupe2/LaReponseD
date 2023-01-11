@@ -12,26 +12,26 @@
 				<a class="btn btn_return mb-5" href="{{ path('app_back_game_index') }}">Retour à  la liste</a>
 				<div class="col  fw-bold">
 					{% for questions in game.questions %}
-					
-					{{ dump(questions) | length }}
+
+						{{ dump(questions) | length }}
 						<h2 class="response_question fw-bold">{{ questions.question.content }} </h2>
-						
-					{% endfor %} 
+
+					{% endfor %}
 				</div>
 				<table class="table">
 					<tbody>
-						<tr>
-							<th>Id</th>
-							<td>{{ game.id }}</td>
-						</tr>
-						<tr>
-							<th>Name</th>
-							<td>{{ game.name }}</td>
-						</tr>
-						<tr>
-							<th>CreatedAt</th>
-							<td>{{ game.createdAt ? game.createdAt|date('Y-m-d') : '' }}</td>
-						</tr>
+					<tr>
+						<th>Id</th>
+						<td>{{ game.id }}</td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td>{{ game.name }}</td>
+					</tr>
+					<tr>
+						<th>CreatedAt</th>
+						<td>{{ game.createdAt ? game.createdAt|date('Y-m-d') : '' }}</td>
+					</tr>
 					</tbody>
 				</table>
 				<div class="col d-flex justify-content-center">
