@@ -117,6 +117,7 @@
 
         <section>
             {% set numQue = 0 %}    {# Numéro de question #}
+            {#{% set score = 0 %}#}
             {% for question in questions %}
                 {% set numQue = numQue + 1 %}
                 {% if numQue <= 15 %}
@@ -128,7 +129,8 @@
                             {% for answers in question.questionAnswers %}
                                 <span class="reponse" id="rep{{ numQue }}-{{ loop.index }}"
                                 data-answer-id="{{ answers.answer.id }}"
-                                data-answer-is-good="{{ answers.isIsGood }}">{{ answers.answer.content }}</span>
+                                data-answer-is-good="{{ answers.isIsGood }}"
+                                {#data-score="{{ score }}"#}>{{ answers.answer.content }}</span>
                             {% endfor %}
                         </div>
                     </article>

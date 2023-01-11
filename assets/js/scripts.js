@@ -47,15 +47,19 @@ async function startCountDown(seconds, element, nb) {
 
 /* Récupérer la réponse choisie. */
 let answerAndStatute = []; // Tableau de l'id et du statut de la réponse du joueur.
+//let userScore = eachAnswer.dataset.score;
 let score = 0;
 async function getAnswer(eachAnswer, i) {
     answerAndStatute = [];
     var answerId = eachAnswer.dataset.answerId;
     var answerIsGood = eachAnswer.dataset.answerIsGood;
+    //var userScore = eachAnswer.dataset.score;
     answerAndStatute.push(answerId, answerIsGood);
     console.log(answerAndStatute);
     if (answerIsGood == "1") {
-        score = score + 1;
+        //userScore = userScore + 1;
+        //userScore++;
+        score++
     }
     console.log(score);
     await endQuestion(i)
@@ -90,6 +94,7 @@ async function endQuestion(nb) {
             }
             else { /* Si c'est le dernier bouton. */
                 const gameOver = document.querySelector("#result");
+                getScore();
                 /* Faire apparaître le bloc final. */
                 gameOver.style.display = "inline-block"
             }
@@ -114,4 +119,10 @@ async function sendUserAnswers() {
     } else {
         console.log("Mauvaise réponse du réseau");
     }
+}
+
+/* Fonction d'affichage du score */
+function getScore() {
+    console.log("Score final : " + score)
+    return score
 }
