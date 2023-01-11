@@ -61,6 +61,11 @@ composer require symfony/security-bundle
 ```php
 composer require symfonycasts/verify-email-bundle
 ```
+```php
+pour passer en symfo 6.2 (avec mon composer.json)
+faire: composer update "symfony/*" --with-all-dependencies
+````
+
 - Maildev sans docker : installer dans un powershell maildev avec: npm install -g maildev
 - Run maildev dans un powershell: maildev --smtp 25 --web-ip ipdevotremachine --ip ipdevotremachine  
 - (sur windows on trouve l'ip de la machine avec ipconfig) ou ifconfig (linux ou essayer sur powershell) 
