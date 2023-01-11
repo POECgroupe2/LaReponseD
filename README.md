@@ -43,7 +43,9 @@ php bin/console doctrine:database:create
 ```php
 php bin/console doctrine:migration:migrate
 ```
-
+```php
+composer require symfony/security-bundle
+```
 - Fixture:
   
 ```php
