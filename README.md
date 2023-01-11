@@ -54,6 +54,13 @@ composer require symfonycasts/verify-email-bundle
 ```php
 php bin/console doctrine:fixture:load    
 ```
+- Important: installer:
+```php
+composer require symfony/security-bundle
+```
+```php
+composer require symfonycasts/verify-email-bundle
+```
 - Maildev sans docker : installer dans un powershell maildev avec: npm install -g maildev
 - Run maildev dans un powershell: maildev --smtp 25 --web-ip ipdevotremachine --ip ipdevotremachine  
 - (sur windows on trouve l'ip de la machine avec ipconfig) ou ifconfig (linux ou essayer sur powershell) 
