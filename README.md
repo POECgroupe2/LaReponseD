@@ -46,6 +46,9 @@ php bin/console doctrine:migration:migrate
 ```php
 composer require symfony/security-bundle
 ```
+```php
+composer require symfonycasts/verify-email-bundle
+```
 - Fixture:
   
 ```php
