@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ApiController extends AbstractController
 {
-    public function json404(string $message = 'not found')
+    public function json404(string $message = 'Non trouvé')
     {
         // on renvoie donc une 404
         $error = new JsonError($message, 404);

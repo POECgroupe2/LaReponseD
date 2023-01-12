@@ -5,12 +5,13 @@ namespace App\Controller\Back;
 use App\Entity\UserGameAnswer;
 use App\Form\UserGameAnswerType;
 use App\Repository\UserGameAnswerRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/back/user/game/answer')]
+#[IsGranted('ROLE_ADMIN')]#[Route('/back/user/game/answer')]
 class UserGameAnswerController extends AbstractController
 {
     #[Route('/', name: 'app_back_user_game_answer_index', methods: ['GET'])]

@@ -8,7 +8,7 @@
 	<div class="container pt-5">
 		<div class="row mb-2">
 			<div class="col-8 mx-auto">
-				<h1 class="text-center my-5">UserGameAnswer</h1>
+				<h1 class="text-center my-5 fs-1">UserGameAnswer</h1>
 				<a class="btn btn_return mb-5" href="{{ path('app_back_user_game_answer_index') }}">Retour à  la liste</a>
 				{# <div class="col  fw-bold">
 					{% for questions in user_game_answer.question %}
@@ -16,18 +16,18 @@
 						
 					{% endfor %}
 				</div> #}
-				<table class="table">
-					<tbody>
+				<table class="table text-center">
+					<tbody class="align-middle">
 						<tr>
-							<th>Id</th>
+							<th class="red_line">Id</th>
 							<td>{{ user_game_answer.id }}</td>
 						</tr>
 						<tr>
-							<th>Good</th>
+							<th class="red_line">Good</th>
 							<td>{{ user_game_answer.good ? 'Yes' : 'No' }}</td>
 						</tr>
 						<tr>
-							<th>DelayAnswer</th>
+							<th class="red_line">DelayAnswer</th>
 							<td>{{ user_game_answer.delayAnswer }}</td>
 						</tr>
 					</tbody>

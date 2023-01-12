@@ -8,16 +8,16 @@
 	<div class="container pt-5">
 		<div class="row mb-2">
 			<div class="col-8 mx-auto">
-				<h1 class="text-center my-5">{{ category.name }}</h1>
+				<h1 class="text-center my-5 fs-1">{{ category.name }}</h1>
 				<a class="btn btn_return mb-5" href="{{ path('app_back_category_index') }}">Retour à  la liste</a>
-				<table class="table">
-					<tbody>
+				<table class="table text-center">
+					<tbody class="align-middle">
 						<tr>
-							<th>Id</th>
+							<th class="red_line">Id</th>
 							<td>{{ category.id }}</td>
 						</tr>
 						<tr>
-							<th>Name</th>
+							<th class="red_line">Name</th>
 							<td>{{ category.name }}</td>
 						</tr>
 					</tbody>

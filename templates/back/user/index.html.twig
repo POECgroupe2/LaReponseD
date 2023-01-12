@@ -7,12 +7,12 @@
 	{% include 'back/partial/back_nav_bar.html.twig' %}
 	<div class="container pt-5">
 		<div class="row mb-2">
-			<h1 class="text-center my-5">Liste des membres</h1>
+			<h1 class="text-center my-5 fs-2">Liste des membres</h1>
 			<div class="col-10 mx-auto">
 				<a class="btn btn-primary mb-4" href="{{ path('app_back_user_new') }}">Ajouter un nouveau membre</a>
-				<table class="table">
+				<table class="table text-center table-striped table-hover">
 					<thead>
-						<tr>
+						<tr class="red_line">
 							<th>Id</th>
 							<th>Email</th>
 							<th>Roles</th>
@@ -23,7 +23,7 @@
 							<th>actions</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody class="align-middle">
 						{% for user in users %}
 							<tr>
 								<td>{{ user.id }}</td>

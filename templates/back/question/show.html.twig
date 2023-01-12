@@ -9,7 +9,7 @@
 		<div class="row mb-2">
 			<div class="col-8 mx-auto">
 		
-				<h1 class="text-center my-5 fw-bold fs-2">{{ question.content }}</h1>
+				<h1 class="text-center my-5 fw-bold fs-1">{{ question.content }}</h1>
 			<a class="btn btn_return mb-5" href="{{ path('app_back_question_index') }}">Retour à  la liste</a>
 				<div class="col  fw-bold">
 					{% for answers in question.questionAnswers %}
@@ -22,22 +22,22 @@
 					{% endfor %}
 				</div>
 				
-				<table class="table">
-					<tbody>
+				<table class="table text-center">
+					<tbody class="align-middle">
 						<tr>
-							<th>Id</th>
+							<th class="red_line">Id</th>
 							<td>{{ question.id }}</td>
 						</tr>
 						<tr>
-							<th>Content</th>
+							<th class="red_line">Content</th>
 							<td>{{ question.content }}</td>
 						</tr>
 						<tr>
-							<th>CreatedAt</th>
+							<th class="red_line">CreatedAt</th>
 							<td>{{ question.createdAt ? question.createdAt|date('Y-m-d') : '' }}</td>
 						</tr>
 						<tr>
-							<th>UpdatedAt</th>
+							<th class="red_line">UpdatedAt</th>
 							<td>{{ question.updatedAt ? question.updatedAt|date('Y-m-d') : '' }}</td>
 						</tr>
 					</tbody>

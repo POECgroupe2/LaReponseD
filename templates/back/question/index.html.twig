@@ -7,26 +7,26 @@
 	{% include 'back/partial/back_nav_bar.html.twig' %}
 	<div class="container pt-5">
 		<div class="row mb-2">
-			<h1 class="text-center my-5">Liste des question</h1>
+			<h1 class="text-center my-5 fs-2">Liste des question</h1>
 			<div class="col-10 mx-auto">
 				<a class="btn btn-primary mb-4" href="{{ path('app_back_question_new') }}">Ajouter une question</a>
-				<table class="table">
+				<table class="table text-center table-striped table-hover">
 					<thead>
-						<tr>
+						<tr class="red_line">
 							<th>Id</th>
 							<th>Content</th>
 							<th>CreatedAt</th>
-							<th>UpdatedAt</th>
+							{# <th>UpdatedAt</th> #}
 							<th>actions</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody class="align-middle">
 						{% for question in questions %}
 							<tr>
 								<td>{{ question.id }}</td>
 								<td>{{ question.content }}</td>
 								<td>{{ question.createdAt ? question.createdAt|date('Y-m-d') : '' }}</td>
-								<td>{{ question.updatedAt ? question.updatedAt|date('Y-m-d') : '' }}</td>
+								{# <td>{{ question.updatedAt ? question.updatedAt|date('Y-m-d') : '' }}</td> #}
 								<td>
 									<a class="btn btn-sm btn_show" href="{{ path('app_back_question_show', {'id': question.id}) }}">Voir</a>
 									<a class="btn btn-sm btn_edit" href="{{ path('app_back_question_edit', {'id': question.id}) }}">Modifier</a>

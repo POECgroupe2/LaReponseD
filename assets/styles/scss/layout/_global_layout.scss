@@ -47,5 +47,17 @@ html {
             color: white;
         }
 
+td{
+    color: #333333;
+    font-weight: bold ;
+    border-bottom: 1px solid #007682 !important;
+}
 
+.table-hover tbody tr:hover td {
+    background: #CDF7F6;
+}
+
+.red_line{
+    border-bottom: 1px solid #007682 !important;
+}
 }

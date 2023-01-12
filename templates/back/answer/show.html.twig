@@ -8,7 +8,7 @@
 	<div class="container pt-5">
 		<div class="row mb-2">
 			<div class="col-8 mx-auto">
-				<h1 class="text-center my-5">Réponse</h1>
+				<h1 class="text-center my-5 fs-1">Réponse</h1>
 				<div class="col  fw-bold">
 					{% for questions in answer.questionAnswers %}
 						<h2 class="response_quesion fw-bold">{{ questions.question.content }} <span class="response_good_{{ questions.isGood ? 'true' : 'false'}} mx-3">  {{ questions.isGood ? 'Réponse Vrai' : 'Réponse Fausse'}}</span></h2>
@@ -20,19 +20,19 @@
 					{% endfor %}
 				</div>
 				<a class="btn btn_return mb-5" href="{{ path('app_back_answer_index') }}">Retour à  la liste</a>
-				<table class="table">
-					<tbody>
+				<table class="table text-center">
+					<tbody class="align-middle">
 						<tr>
-							<th>Id</th>
+							<th class="red_line">Id</th>
 							<td>{{ answer.id }}</td>
 						</tr>
 						<tr>
-							<th>Content</th>
+							<th class="red_line">Content</th>
 							<td>{{ answer.content }}</td>
 						</tr>
 						
 						<tr>
-							<th>CreatedAt</th>
+							<th class="red_line">CreatedAt</th>
 							<td>{{ answer.createdAt ? answer.createdAt|date('Y-m-d') : '' }}</td>
 						</tr>
 					</tbody>
