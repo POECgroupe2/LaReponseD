@@ -26,6 +26,7 @@ class GameController extends ApiController
         return $this->json($questionRepository->getRandomQuestions(), 200, [], ['groups' => 'api_games_browse']);
     }
 
+    
     #[Route('/{id}', name: 'read', methods: ['GET'], requirements: ['id' => '\d+'])]
     public function read(Game $game, int $id = null): JsonResponse
     {
@@ -83,6 +84,7 @@ class GameController extends ApiController
 
         $game->setCreatedAt(new \DateTime('now'));
         
+        
         $repo->save($game, true);
 
         
@@ -93,11 +95,11 @@ class GameController extends ApiController
             Response::HTTP_CREATED,
             [
                 
-                'Location' => $this->generateUrl('api_game_read', ['id' => $game->getId()])
+                'Location' => $this->generateUrl('api_games_read', ['id' => $game->getId()])
             ],
             [
                 
-                "groups" =>"api_game_read"
+                "groups" =>"api_games_read"
                
             ]
                 

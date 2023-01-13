@@ -8,20 +8,20 @@
 	<div class="container pt-5">
 		<div class="row mb-2">
 			<div class="col-8 mx-auto">
-				<h1 class="text-center my-5">User</h1>
+				<h1 class="text-center my-5 fs-1">User</h1>
 				<a class="btn btn_return mb-5" href="{{ path('app_back_user_index') }}">Retour à  la liste</a>
-				<table class="table">
+				<table class="table text-center">
 					<tbody>
 						<tr>
-							<th>Id</th>
+							<th class="red_line">Id</th>
 							<td>{{ user.id }}</td>
 						</tr>
 						<tr>
-							<th>Email</th>
+							<th class="red_line">Email</th>
 							<td>{{ user.email }}</td>
 						</tr>
 						<tr>
-							<th>Roles</th>
+							<th class="red_line">Roles</th>
 							<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 						</tr>
 						{# <tr>
@@ -29,15 +29,15 @@
 						                <td>{{ user.password }}</td>
 						            </tr> #}
 						<tr>
-							<th>Pseudo</th>
+							<th class="red_line">Pseudo</th>
 							<td>{{ user.pseudo }}</td>
 						</tr>
 						<tr>
-							<th>TotalScore</th>
+							<th class="red_line">TotalScore</th>
 							<td>{{ user.totalScore }}</td>
 						</tr>
 						<tr>
-							<th>CreatedAt</th>
+							<th class="red_line">CreatedAt</th>
 							<td>{{ user.createdAt ? user.createdAt|date('Y-m-d') : '' }}</td>
 						</tr>
 					</tbody>

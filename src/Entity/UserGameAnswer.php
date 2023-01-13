@@ -20,7 +20,7 @@ class UserGameAnswer
     #[Groups(['api_users_browse', 'api_users_read', 'api_user_game_answer_browse', 'api_user_game_answer_read'])]
     private ?bool $good = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     #[Groups(['api_users_browse', 'api_users_read'])]
     private ?string $delayAnswer = null;
 

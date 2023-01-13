@@ -7,18 +7,18 @@
 	{% include 'back/partial/back_nav_bar.html.twig' %}
 	<div class="container pt-5">
 		<div class="row mb-2">
-			<h1 class="text-center my-5">Liste des catégories</h1>
+			<h1 class="text-center my-5 fs-2">Liste des catégories</h1>
 			<div class="col-10 mx-auto">
 				<a class="btn btn-primary mb-4" href="{{ path('app_back_category_new') }}">Ajouter une catégorie</a>
-				<table class="table">
+				<table class="table text-center table-striped table-hover">
 					<thead>
-						<tr>
-							<th>Id</th>
-							<th>Name</th>
-							<th>actions</th>
+						<tr class="red_line">
+							<th class="red_line">Id</th>
+							<th class="red_line">Name</th>
+							<th class="red_line">actions</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody class="align-middle">
 						{% for category in categories %}
 							<tr>
 								<td>{{ category.id }}</td>

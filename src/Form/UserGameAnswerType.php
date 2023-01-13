@@ -26,6 +26,7 @@ class UserGameAnswerType extends AbstractType
                 ]])
             ->add('delayAnswer', NumberType::class, array(
                 'label' => "Délai de réponse",
+                'required' => false
             ))
             ->add('answer', EntityType::class, [
                 'label' => 'Choisir la réponse',
