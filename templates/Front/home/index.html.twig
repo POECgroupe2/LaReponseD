@@ -6,78 +6,92 @@
     <header>
         <img src="logo.jpg" alt="LOGO" id="logo">
 
-        <!-- {# if app.user #} -->
-            <nav class="front_nav">
+        <nav class="front_nav">
+            {% if app.user %}
                 <a href="#" class="navLink">Classement</a>
                 <a href="#" class="navLink">Désinscription</a>
-                <a href="#" class="navLink">Déconnexion</a>
-            </nav>
-        <!-- {# else #} -->
-            <!--
-            <nav class="front_nav">
+                <a href="{{ path('app_logout') }}" class="navLink">Déconnexion</a>
+            {% else %}
                 <a href="#" class="navLink">Classement</a>
-                <a href="#" class="navLink">Inscription</a>
-                <a href="#" class="navLink">Connexion</a>
-            </nav>
-            -->
-        <!-- {# endif #} -->
+                <a href="#" class="navLink">Inscription</a> {#{{ path('app_register') }}#}
+                <a href="#" class="navLink">Connexion</a> {#{{ path('app_login') }}#}
+            {% endif %}
+        </nav>
+
+        {#{% if app.user and app.user.isVerified == false %}
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="alert-message">
+                    <strong>Compte non activé</strong>, vérifiez le mail de confirmation reçu à
+                    {{ app.user.email }} et cliquez sur le lien d'activation.<br>
+                    Email de confirmation non reçu&nbsp;? ->
+                    <a href="{{ path('resend_confirmation_email', {'id':app.user.id, 'email':app.user.email}) }}"
+                    class="navLink">Renvoyer l'email de confirmation</a> à {{ app.user.email }}
+                </div>
+            </div>
+        {% endif %}#}
     </header>
 
     <main class="front_main">
         <section id="titles">
             <h1>La réponse D !</h1>
-            <!-- {# if app.user #} -->
-                <h2>Bienvenue <span style="color: red">&lt;User&gt;</span>, nous sommes heureux de vous
+            {% if app.user %}
+                <h2>Bienvenue <strong>{{ app.user.pseudo }}</strong>, nous sommes heureux de vous
                 accueillir&nbsp;!</h2>
                 <h2>Vous avez actuellement <span style="color: red">&lt;Score&gt;</span>&nbsp;points
                 <br>et vous êtes en <span style="color: red">&lt;Place&gt;</span><sup>ème</sup>&nbsp;position
                 dans le classement général...</h2>
-            <!-- {# else #} -->
-                <!--
+            {% else %}
                 <h2>Bienvenue dans ce jeu de quizz en&nbsp;ligne&nbsp;!</h2>
                 <h2>
                     N'hésitez pas à vous inscrire dès maintenant pour découvrir le jeu complet ou simplement
-                    à jouer à la mini&#8209;partie de 5 questions qui vous est offerte ci&#8209;dessous...-->
+                    à jouer à la partie qui vous est offerte ci&#8209;dessous...
                     <!-- Le caractère "&#8209;" est le trait d'union insécable. -->
-                <!--
                 </h2>
-                -->
-            <!-- {# endif #} -->
+            {% endif %}
         </section>
 
-        <!-- {# if app.user #} -->
-        <section id="level_categ">
-            <div id="game_choice">
-                <div id="level_div">
-                    <label for="level">Niveau</label>
-                    <select id="level">
-                        <option>Facile</option>
-                        <option>Moyen</option>
-                        <option>Difficile</option>
-                    </select>
+        {% if app.user %}
+            <section id="level_categ">
+                <div id="game_choice">
+                    <div id="level_div">
+                        <label for="level">Niveau</label>
+                        <select id="level">
+                            <option>Débutant</option>
+                            <option>Intermédiaire</option>
+                            <option>Expert</option>
+                        </select>
+                    </div>
+                    <div id="categ_div">
+                        <label for="categ">Catégorie</label>
+                        <select id="categ">
+                            <option>Animaux</option>
+                            <option>Art</option>
+                            <option>Cinéma</option>
+                            <option>Cuisine</option>
+                            <option>Culture générale</option>
+                            <option>Géographie</option>
+                            <option>Histoire</option>
+                            <option>Informatique</option>
+                            <option>Jeux Vidéo</option>
+                            <option>Littérature</option>
+                            <option>Musique</option>
+                            <option>Séries TV</option>
+                            <option>Sport</option>
+                        </select>
+                    </div>
                 </div>
-                <div id="categ_div">
-                    <label for="categ">Catégorie</label>
-                    <select id="categ">
-                        <option>Cinéma</option>
-                        <option>Culture générale</option>
-                        <option>Géographie</option>
-                        <option>Histoire</option>
-                        <option>Musique</option>
-                        <option>Sports</option>
-                    </select>
-                </div>
-            </div>
-            <div id="game_validate">Valider</div>
-        </section>
-        <!-- {# endif #} -->
+                <div id="game_validate">Valider</div>
+            </section>
+        {% endif %}
 
         <section id="explain">
             <h3>Comment jouer ?</h3>
-            <!-- {# if app.user #} -->
-            <p>En tant que joueur connecté, vous pouvez choisir ci&#8209;dessus le niveau de difficulté et la
-            catégorie de la partie complète de 15 questions présente ci&#8209;dessous.</p>
-            <!-- {# endif #} -->
+            {% if app.user %}
+                <p>En tant que joueur connecté, vous pouvez choisir ci&#8209;dessus le niveau de difficulté et
+                la catégorie de la partie de 15 questions présente ci&#8209;dessous.</p>
+                <p>Donner un nom à votre partie par le biais du champ ci&#8209;dessous et valider.</p>
+            {% endif %}
             <p>Cliquer sur le bouton de la question ci&#8209;dessous déclenche le compteur et fait apparaître
             la question et ses réponses.</p>
             <p>Cliquer sur une réponse la valide et fait disparaître l'ensemble. Il n'est alors plus
@@ -86,11 +100,19 @@
             aussi...</p>
         </section>
 
+        {% if app.user %}
+            <section id="game_name">
+                <label for="name">Nom de votre partie</label>
+                <input type="text" id="name" name="name" size="30" required>
+                <div id="game_name_validate">Valider</div>
+            </section>
+        {% endif %}
+
         <section id="buttons">
             <!-- Ici se trouvent des boutons créés dans une boucle JS. -->
         </section>
 
-        <!-- {# if app.user #} -->
+        {% if app.user %}
             <!-- {# if "Niveau facile" #} --> <!-- Par défaut -->
                 <div id="count-down-timer">20 secondes</div>
             <!-- {# elseif "Niveau moyen" #} -->
@@ -102,105 +124,57 @@
                 <div id="count-down-timer">10 secondes</div>
                 -->
             <!-- {# endif #} -->
-        <!-- {# else #} -->
-            <!--
+        {% else %}
             <div id="count-down-timer">20 secondes</div>
-            -->
-        <!-- {# endif #} -->
+        {% endif %}
 
         <section>
-            <article id="question1">
+            {% set numQue = 0 %}    {# Numéro de question #}
+            {#{% set score = 0 %}#}
+            {% for question in questions %}
+                {% set numQue = numQue + 1 %}
+                {% if numQue <= 15 %}
+                    <article id="question{{ numQue }}">
+                        <div class="question" data-id="{{ question.id }}">
+                            {{ question.content|raw }}
+                        </div>
+                        <div class="reponses">
+                            {% for answers in question.questionAnswers %}
+                                <span class="reponse" id="rep{{ numQue }}-{{ loop.index }}"
+                                data-answer-id="{{ answers.answer.id }}"
+                                data-answer-is-good="{{ answers.isIsGood }}"
+                                {#data-score="{{ score }}"#}>{{ answers.answer.content }}</span>
+                            {% endfor %}
+                        </div>
+                    </article>
+                {% endif %}
+            {% endfor %}
+
+            <!-- L'article commenté ci-dessous est un exemple de première version "en dur" d'une question. -->
+            {#<article id="question1">
                 <div class="question">
                     Quelle est la plus grande planète de notre système solaire&nbsp;?
                 </div>
                 <div class="reponses">
-                    <div class="repLigne">
-                        <span class="reponse" id="rep1-1">Jupiter</span>
-                        <span class="reponse" id="rep1-2">Saturne</span>
-                    </div>
-                    <div class="repLigne">
-                        <span class="reponse" id="rep1-3">Uranus</span>
-                        <span class="reponse" id="rep1-4">Neptune</span>
-                    </div>
+                    <span class="reponse" id="rep1-1">Jupiter</span>
+                    <span class="reponse" id="rep1-2">Saturne</span>
+                    <span class="reponse" id="rep1-3">Uranus</span>
+                    <span class="reponse" id="rep1-4">Neptune</span>
                 </div>
-            </article>
-
-            <article id="question2">
-                <div class="question">
-                    De quel groupe musical Rob Bourdon est-il le batteur&nbsp;?
-                </div>
-                <div class="reponses">
-                    <div class="repLigne">
-                        <span class="reponse" id="rep2-1">Deep Purple</span>
-                        <span class="reponse" id="rep2-2">Guns N' Roses</span>
-                    </div>
-                    <div class="repLigne">
-                        <span class="reponse" id="rep2-3">Linkin Park</span>
-                        <span class="reponse" id="rep2-4">Motörhead</span>
-                    </div>
-                </div>
-            </article>
-
-            <article id="question3">
-                <div class="question">
-                    Qui était le Président de la République Française en 1971&nbsp;?
-                </div>
-                <div class="reponses">
-                    <div class="repLigne">
-                        <span class="reponse" id="rep3-1">Charles de Gaulle</span>
-                        <span class="reponse" id="rep3-2">Georges Pompidou</span>
-                    </div>
-                    <div class="repLigne">
-                        <span class="reponse" id="rep3-3">Valéry Giscard d'Estaing</span>
-                        <span class="reponse" id="rep3-4">Alain Poher</span>
-                    </div>
-                </div>
-            </article>
-
-            <article id="question4">
-                <div class="question">
-                    Lequel de ces noms n'est pas celui d'un des bateaux de Christophe Colomb lors de sa
-                "découverte" de l'Amérique&nbsp;?
-                </div>
-                <div class="reponses">
-                    <div class="repLigne">
-                        <span class="reponse" id="rep4-1">La Guardia</span>
-                        <span class="reponse" id="rep4-2">La Niña</span>
-                    </div>
-                    <div class="repLigne">
-                        <span class="reponse" id="rep4-3">La Pinta</span>
-                        <span class="reponse" id="rep4-4">La Santa Maria</span>
-                    </div>
-                </div>
-            </article>
-
-            <article id="question5">
-                <div class="question">
-                    Quand est décédé Ayrton Senna&nbsp;?
-                </div>
-                <div class="reponses">
-                    <div class="repLigne">
-                        <span class="reponse" id="rep5-1">3 novembre 1993</span>
-                        <span class="reponse" id="rep5-2">15 février 1994</span>
-                    </div>
-                    <div class="repLigne">
-                        <span class="reponse" id="rep5-3">1er mai 1994</span>
-                        <span class="reponse" id="rep5-4">4 mai 1995</span>
-                    </div>
-                </div>
-            </article>
+            </article>#}
 
             <article id="result">
                 <p>La partie est terminée !</p>
                 <p>Vous avez obtenu <span style="color: red">&lt;Score&gt;</span>&nbsp;points.</p>
+                {#<p>Vous avez obtenu {{ score }}&nbsp;points.</p>#}
                 <p>N'hésitez pas à rejouer ou à vous inscrire pour des parties plus longues !</p>
             </article>
         </section>
 
-        <!-- {# if app.user #} -->
+        {% if app.user %}
         <!-- Ce bouton ne fait que recharger la page. -->
             <div id="new_game" onClick="window.location.reload()">Nouvelle partie</div>
-        <!-- {# endif #} -->
+        {% endif %}
 
         <div id="hidden"></div>
     </main>
