@@ -51,6 +51,7 @@
             {% endif %}
         </section>
 
+<<<<<<< HEAD
         {% if app.user %}
             <section id="level_categ">
                 <div id="game_choice">
@@ -84,6 +85,41 @@
                 <div id="game_validate">Valider</div>
             </section>
         {% endif %}
+=======
+        <!-- {# if app.user #} -->
+        <section id="level_categ">
+            <div id="game_choice">
+                <div id="level_div">
+                    <label for="level">Niveau</label>
+                    <select id="level">
+                        <option>Débutant</option>
+                        <option>Intermédiaire</option>
+                        <option>Expert</option>
+                    </select>
+                </div>
+                <div id="categ_div">
+                    <label for="categ">Catégorie</label>
+                    <select id="categ">
+                        <option>Animaux</option>
+                        <option>Art</option>
+                        <option>Cinéma</option>
+                        <option>Cuisine</option>
+                        <option>Culture générale</option>
+                        <option>Géographie</option>
+                        <option>Histoire</option>
+                        <option>Informatique</option>
+                        <option>Jeux Vidéo</option>
+                        <option>Littérature</option>
+                        <option>Musique</option>
+                        <option>Séries TV</option>
+                        <option>Sport</option>
+                    </select>
+                </div>
+            </div>
+            <div id="game_validate">Valider</div>
+        </section>
+        <!-- {# endif #} -->
+>>>>>>> 89bf27f008e599c099cb614f6eeca9abeb5f10df
 
         <section id="explain">
             <h3>Comment jouer ?</h3>
@@ -130,20 +166,31 @@
 
         <section>
             {% set numQue = 0 %}    {# Numéro de question #}
+<<<<<<< HEAD
             {#{% set score = 0 %}#}
+=======
+>>>>>>> 89bf27f008e599c099cb614f6eeca9abeb5f10df
             {% for question in questions %}
                 {% set numQue = numQue + 1 %}
                 {% if numQue <= 15 %}
                     <article id="question{{ numQue }}">
+<<<<<<< HEAD
                         <div class="question" data-id="{{ question.id }}">
+=======
+                        <div class="question">
+>>>>>>> 89bf27f008e599c099cb614f6eeca9abeb5f10df
                             {{ question.content|raw }}
                         </div>
                         <div class="reponses">
                             {% for answers in question.questionAnswers %}
                                 <span class="reponse" id="rep{{ numQue }}-{{ loop.index }}"
                                 data-answer-id="{{ answers.answer.id }}"
+<<<<<<< HEAD
                                 data-answer-is-good="{{ answers.isIsGood }}"
                                 {#data-score="{{ score }}"#}>{{ answers.answer.content }}</span>
+=======
+                                data-answer-is-good="{{ answers.isIsGood }}">{{ answers.answer.content }}</span>
+>>>>>>> 89bf27f008e599c099cb614f6eeca9abeb5f10df
                             {% endfor %}
                         </div>
                     </article>
@@ -166,7 +213,10 @@
             <article id="result">
                 <p>La partie est terminée !</p>
                 <p>Vous avez obtenu <span style="color: red">&lt;Score&gt;</span>&nbsp;points.</p>
+<<<<<<< HEAD
                 <!-- Phrase à modifier pour le futur affichage du score -->
+=======
+>>>>>>> 89bf27f008e599c099cb614f6eeca9abeb5f10df
                 {#<p>Vous avez obtenu {{ score }}&nbsp;points.</p>#}
                 <p>N'hésitez pas à rejouer ou à vous inscrire pour des parties plus longues !</p>
             </article>
