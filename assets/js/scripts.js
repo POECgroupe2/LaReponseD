@@ -146,8 +146,10 @@ function getScore() {
     return score
 }
 
-/*{
+/* Données à récupérer pour la BDD.
+{
     "name": 'nom de jeu',
     "questions": [ID des questions contenu dans le game séparés par une virgule],
     "users": [ id de l'utilisateur ]
-}*/
+}
+*/
