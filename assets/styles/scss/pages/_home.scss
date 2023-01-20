@@ -1,12 +1,12 @@
 .front_main {
     background-color: rgb(20, 200, 250);
-    background-image: url('../../../../public/build/images/fond_bleu.8602aa9d.jpg');
+    background-image: url("../../../img/fond_bleu.jpg");
     background-size: cover;
     text-align: center;
     padding-top: 50px;
     margin-top: 148px;
 
-    >#titles, >#level_categ, >#explain, >#count-down-timer, .question, .reponse, #result {
+    >#titles, >#level_categ, >#explain, >#game_name, >#count-down-timer, .question, .reponse, #result {
         background: rgba(255, 255, 255, 0.6);
         width: 90%;
         max-width: 1170px;
@@ -100,6 +100,30 @@
 
         @media #{$mq443} {
             font-size: 1.1em;
+        }
+    }
+
+    >#game_name {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 1.2em;
+        padding: 10px 20px;
+
+        >#game_name_validate {
+            cursor: pointer;
+            background: $color-black;
+            color: $color-white;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: $color-borders;
+            border-radius: 50%;
+            margin-top: 10px;
+            &:hover {
+                background: $color-white;
+                color: $color-black
+            }
         }
     }
 

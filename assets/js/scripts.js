@@ -1,3 +1,22 @@
+/* Récupérer le nom de la partie. */
+/*const gameName = document.querySelector("#name");
+const gameNameValidate = document.querySelector("#game_name_validate");
+gameNameValidate.addEventListener("click", event => getGameName(event.target))
+
+function getGameName() {
+    console.log(gameName.value)
+    return gameName.value
+}*/
+
+/* Récupérer les id de questions */
+/*let questionsIds = [];
+function getQuestionsIds(eachQuestion) {
+    questionsIds = [];
+    let questionId = eachQuestion.dataset.id;
+    questionsIds.push(questionId);
+    console.log(questionsIds);
+}*/
+
 /* Afficher les boutons des questions. */
 const buttons = document.querySelector("#buttons");
 window.addEventListener("load", async function(e) {
@@ -47,15 +66,19 @@ async function startCountDown(seconds, element, nb) {
 
 /* Récupérer la réponse choisie. */
 let answerAndStatute = []; // Tableau de l'id et du statut de la réponse du joueur.
+//let userScore = eachAnswer.dataset.score;
 let score = 0;
 async function getAnswer(eachAnswer, i) {
     answerAndStatute = [];
     var answerId = eachAnswer.dataset.answerId;
     var answerIsGood = eachAnswer.dataset.answerIsGood;
+    //var userScore = eachAnswer.dataset.score;
     answerAndStatute.push(answerId, answerIsGood);
     console.log(answerAndStatute);
     if (answerIsGood == "1") {
-        score = score + 1;
+        //userScore = userScore + 1;
+        //userScore++;
+        score++
     }
     console.log(score);
     await endQuestion(i)
@@ -90,6 +113,7 @@ async function endQuestion(nb) {
             }
             else { /* Si c'est le dernier bouton. */
                 const gameOver = document.querySelector("#result");
+                getScore();
                 /* Faire apparaître le bloc final. */
                 gameOver.style.display = "inline-block"
             }
@@ -115,3 +139,17 @@ async function sendUserAnswers() {
         console.log("Mauvaise réponse du réseau");
     }
 }
+
+/* Fonction d'affichage du score */
+function getScore() {
+    console.log("Score final : " + score)
+    return score
+}
+
+/* Données à récupérer plus tard pour la BDD.
+{
+    "name": 'nom de jeu',
+    "questions": [ID des questions contenu dans le game séparés par une virgule],
+    "users": [ id de l'utilisateur ]
+}
+*/

@@ -23,6 +23,12 @@ header {
         }
     }
 
+    .alert {
+        width: 200px;
+        height: 250px;
+        margin: 120px 10px 0 0
+    }
+
     @media #{$mq485} {
         height: 180px
     }
